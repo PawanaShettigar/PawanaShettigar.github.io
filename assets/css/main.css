@@ -1656,3 +1656,10 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+/* Prevent text from overflowing its container */
+.article p, .article span.image, .inner, .content {
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;   /* Modern standard */
+  word-wrap: break-word;       /* Legacy alias */
+}
