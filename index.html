@@ -70,8 +70,29 @@
 						<!-- Poems -->
 						    <article id="Poems">
 								<h2 class="major">Poems</h2>
+								<h3 class="book-title">Title</h3>
 								<span class="image main"><img src="images/pic03.jpg" alt=""/></span>
-								<p>will post soon</p>
+								<p class="intro">will post soon</p>
+								<nav class+"poem-nav">
+									<ul>
+										<li><a href="#poem-1">Poem title 1</a></li>
+										<li><a href="#poem-2">Poem title 2</a></li>
+									</ul>
+								</nav>
+
+								<section id="poem-1" class="poem hidden">
+									<h3>Poem title 1</h3>
+									<p>verse of poem 1</p>
+									<a href="#poem-2" class="next-poem">Next &rarr;</a>
+									<a href="#Poems" class="back">Back to poems</a>
+								</section>
+
+								<section id="poem-2" class="poem hidden">
+									<h3>Poem title 2</h3>
+									<p>verse of poem 2</p>
+									<a href="#poem-3" class="next-poem">Next &rarr;</a>
+									<a href="#Poems" class="back">Back to poems</a>
+								</section>
 							</article>
 
 						<!-- Cosmic vault -->
@@ -395,6 +416,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 	</body>
 </html>
+
 
 
 
