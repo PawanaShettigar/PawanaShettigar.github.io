@@ -1665,3 +1665,17 @@ input, select, textarea {
 			white-space: nowrap;   /* Stop text from breaking into two lines */
             font-size: 0.95em;     /* Slightly smaller text so it fits better */
 		}
+
+        /* Makes sure content will wrap inside articles */
+        #main article {
+			word-break: break-word;
+			overflow-wrap: break-word;
+			max-width: 100%;
+		}
+
+        .content,  .inner  {
+			word-break: break-word;
+			overflow-wrap: break-word;
+			max-width: 100%;
+		}
+
