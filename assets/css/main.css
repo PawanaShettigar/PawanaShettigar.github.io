@@ -1702,6 +1702,28 @@ input, select, textarea {
 			white-space: normal !important;
 		}
 
+        .next-poem,
+        .prev-poem {
+			display: inline-block; /* Makes them behave like small buttons */
+            margin: 1em 1em 0 0; /* Top/right spacing so they don't stick to other elements */
+            font-size: 1em; /* Easy to read */
+            color: #ffd700; /* Gold/yellow to stand out (you can change this!) */
+            text-decoration: underline; /* Shows it's a link */
+            cursor: pointer; /* Mouse pointer changes to a hand */
+            background: none; /* No background by default */
+            border: none; /* No border */
+            transition: color 0.2s, background 0.2s; /* Smooth hover effect */
+        }
+         .next-poem:hover,
+         .prev-poem:hover {
+			 color: #fff; /* Turns white when hovered */
+             background: #ffd70022; /* Subtle gold background when hovered */
+        }
+
+
+
+
+
 
 
 
