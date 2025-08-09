@@ -398,4 +398,48 @@
 						$main._show(location.hash.substr(1), true);
 					});
 
+
 })(jQuery);
+
+
+function showPoem(poemId) {
+  document.querySelectorAll('.poem').forEach(function(p) {
+    p.classList.remove('active');
+    p.classList.add('hidden');
+  });
+  var poemSection = document.getElementById(poemId);
+  if (poemSection) {
+    poemSection.classList.add('active');
+    poemSection.classList.remove('hidden');
+  }
+  window.location.hash = '#' + poemId;
+}
+
+// Show poem when a title is clicked
+document.querySelectorAll('.poem-nav a').forEach(function(link){
+  link.addEventListener('click', function(e){
+    e.preventDefault();
+    showPoem(link.getAttribute('href').replace('#', ''));
+  });
+});
+
+// Back to poem list
+document.querySelectorAll('.back').forEach(function(link){
+  link.addEventListener('click', function(e){
+    e.preventDefault();
+    document.querySelectorAll('.poem').forEach(function(p){
+      p.classList.remove('active');
+      p.classList.add('hidden');
+    });
+    window.location.hash = "#poems";
+  });
+});
+
+// Next/Previous poem navigation
+document.querySelectorAll('.next-poem, .prev-poem').forEach(function(link){
+  link.addEventListener('click', function(e){
+    e.preventDefault();
+    showPoem(link.getAttribute('href').replace('#',''));
+  });
+});
+
