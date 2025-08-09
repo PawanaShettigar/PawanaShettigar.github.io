@@ -443,3 +443,73 @@ document.querySelectorAll('.next-poem, .prev-poem').forEach(function(link){
   });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  // Show poem list after welcome
+  var viewPoemsBtn = document.getElementById('view-poems-btn');
+  if (viewPoemsBtn) {
+    viewPoemsBtn.addEventListener('click', function() {
+      document.getElementById('poem-welcome').classList.remove('active');
+      document.getElementById('poem-welcome').classList.add('hidden');
+      document.getElementById('poem-list').classList.remove('hidden');
+      document.getElementById('poem-list').classList.add('active');
+    });
+  }
+
+  // Back to welcome/list
+  function showPoemsList() {
+    document.getElementById('poem-welcome').classList.remove('hidden');
+    document.getElementById('poem-welcome').classList.add('active');
+    document.getElementById('poem-list').classList.remove('active');
+    document.getElementById('poem-list').classList.add('hidden');
+    document.querySelectorAll('.poem').forEach(function(p){
+      p.classList.remove('active');
+      p.classList.add('hidden');
+    });
+    window.location.hash = "#poems";
+  }
+
+  // Show a poem section
+  document.querySelectorAll('.poem-nav a').forEach(function(link){
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      document.getElementById('poem-list').classList.remove('active');
+      document.getElementById('poem-list').classList.add('hidden');
+      document.querySelectorAll('.poem').forEach(function(p){
+        p.classList.remove('active');
+        p.classList.add('hidden');
+      });
+      var poemId = link.getAttribute('href').replace('#', '');
+      var poemSection = document.getElementById(poemId);
+      if (poemSection) {
+        poemSection.classList.add('active');
+        poemSection.classList.remove('hidden');
+      }
+      window.location.hash = '#' + poemId;
+    });
+  });
+
+  // Back button to list (welcome)
+  document.querySelectorAll('.back').forEach(function(link){
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      showPoemsList();
+    });
+  });
+
+  // Next/Previous poem navigation
+  document.querySelectorAll('.next-poem, .prev-poem').forEach(function(link){
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      document.querySelectorAll('.poem').forEach(function(p){
+        p.classList.remove('active'); p.classList.add('hidden');
+      });
+      var poemId = link.getAttribute('href').replace('#','');
+      var poemSection = document.getElementById(poemId);
+      if (poemSection) {
+        poemSection.classList.add('active');
+        poemSection.classList.remove('hidden');
+      }
+      window.location.hash = '#' + poemId;
+    });
+  });
+});
