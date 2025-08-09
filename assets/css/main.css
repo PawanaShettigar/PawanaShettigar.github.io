@@ -1744,11 +1744,11 @@ input, select, textarea {
 			list-style: none;
             padding-left: 0;
             margin-bottom: 2em;
-         }
-         .poem-nav li {
-			 margin-bottom: 0.5em;
-         }
-         .poem-nav a {
+		}
+        .poem-nav li {
+			margin-bottom: 0.5em;
+		}
+        .poem-nav a {
 			 font-size: 1.1em;
              color: #ffd700;
              text-decoration: underline;
@@ -1759,54 +1759,55 @@ input, select, textarea {
          .poem {
 			 display: none;
              margin-top: 2em;
-          }
-          .poem.active {
-			  display: block;
-          }
+		 }
+         .poem.active {
+			 display: block;
+		 }
 
-          /* Button styles for navigation */
-          .button-nav {
-			  display: inline-block;
-              min-width: 120px;
-              padding: 0.6em 1.5em;
-              font-size: 1em;
-              font-weight: 600;
-              color: #1b1f22;
-              background: #ffd700;
-              border: none;
-              border-radius: 25px;
-              text-decoration: none;
-              cursor: pointer;
-              box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-              transition: background 0.2s, color 0.2s;
-              text-align: center;
-           }
+         /* Button styles for navigation */
+         .button-nav {
+			 display: inline-block;
+             min-width: 120px;
+             padding: 0.6em 1.5em;
+             font-size: 1em;
+             font-weight: 600;
+             color: #1b1f22;
+             background: #ffd700;
+             border: none;
+             border-radius: 25px;
+             text-decoration: none;
+             cursor: pointer;
+             box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+             transition: background 0.2s, color 0.2s;
+             text-align: center;
+		 }
  
-           .button-nav:hover {
-			   background: #ffea70;
-               color: #222;
-           }
+         .button-nav:hover {
+			 background: #ffea70;
+             color: #222;
+		 }
 
-           /* Position Next on right, Back on left */
-           .poem-nav-row {
-			   display: flex;
-               justify-content: space-between;
-               align-items: center;
-               margin-top: 2em;
-               gap: 2em;
-               padding: 0 1em;
-           }
+         /* Position Next on right, Back on left */
+         .poem-nav-row {
+			 display: flex;
+             justify-content: space-between;
+             align-items: center;
+             margin-top: 2em;
+             gap: 2em;
+             padding: 0 1em;
+		 }
 
-           /* Responsive: stack buttons on small screens */
-           @media (max-width: 600px) {
-			   .poem-nav-row {
-				   flex-direction: column;
-                   gap: 1em;
-			   }  
-		   }
+         /* Responsive: stack buttons on small screens */
+         @media (max-width: 600px) {
+			 .poem-nav-row {
+				 flex-direction: column;
+                 gap: 1em;
+			 }  
+		 }
 
 
   
+
 
 
 
