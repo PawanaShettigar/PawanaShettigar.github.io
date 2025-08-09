@@ -1698,8 +1698,9 @@ input, select, textarea {
         #main article h2,
         #main article p{
 			word-break: break-word;
-			overflow-wrap: breakword;
+			overflow-wrap: break-word;
 			white-space: normal;
 		}
+
 
 
