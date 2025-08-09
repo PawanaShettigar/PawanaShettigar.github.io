@@ -1680,27 +1680,28 @@ input, select, textarea {
 		}
 
         #main {
-			width: 100vw;
-			max-width: 100vw;
-			box-sizing: border-box;
+			width: 100vw !important;
+			max-width: 100vw !important;
+			box-sizing: border-box !important;
 		}
 
         #main article {
-			width: 100%;
-			max-width: 700px;
-			margin: 0 auto;
-			box-siziing: border-box;
-			padding: 2em 1.5em;
-			word-break: break-word;
-			overflow-wrap: break-word;
+			width: 100% !important;
+			max-width: 700px !important;
+			margin: 0 auto !important;
+			box-siziing: border-box !important;
+			padding: 2em 1.5em !important;
+			word-break: break-all !important;
+			overflow-wrap: anywhere !important;
 		}
 
         #main article h2,
         #main article p{
-			word-break: break-word;
-			overflow-wrap: break-word;
-			white-space: normal;
+			word-break: break-all !important;
+			overflow-wrap: anywhere !important;
+			white-space: normal !important;
 		}
+
 
 
 
