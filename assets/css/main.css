@@ -1805,6 +1805,93 @@ input, select, textarea {
 			 }  
 		 }
 
+/* Professional pink/nebula background */
+#poems {
+  background: linear-gradient(135deg, #E8AAB7 0%, #3A1459 100%);
+  /* Optional: add your nebula image as a background below */
+  /* background-image: url('images/your-nebula-image.jpg'); */
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 32px rgba(34,34,59,0.08);
+  color: #FFF;
+  font-family: 'Inter', 'Open Sans', sans-serif;
+  padding: 2em;
+}
+
+/* Show/hide logic */
+.poem-welcome, .poem-list, .poem {
+  margin-bottom: 2em;
+  display: none;
+}
+.poem-welcome.active, .poem-list.active, .poem.active { display: block; }
+.poem-welcome.hidden, .poem-list.hidden, .poem.hidden { display: none; }
+
+/* Title, intro, list */
+.book-title {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #FFF;
+  letter-spacing: 0.1em;
+  margin-bottom: 1em;
+}
+.intro {
+  font-size: 1.1em;
+  color: #B8B8B8;
+  font-style: italic;
+  margin-bottom: 2em;
+}
+.poem-nav ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 2em;
+}
+.poem-nav li {
+  margin-bottom: 0.5em;
+}
+.poem-nav a {
+  font-size: 1.1em;
+  color: #A3B4F3; /* soft blue link */
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Button (navigation) styles */
+.button-nav {
+  min-width: 120px;
+  padding: 0.6em 1.5em;
+  font-size: 1em;
+  font-weight: 600;
+  color: #FFF;
+  background: #3A1459;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  text-align: center;
+}
+.button-nav:hover {
+  background: #CB7998; /* muted pink hover */
+  color: #22223B;
+}
+
+/* Flexible navigation row */
+.poem-nav-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2em;
+  gap: 2em;
+  padding: 0 1em;
+}
+/* Responsive buttons stack */
+@media (max-width:600px) {
+  .poem-nav-row { flex-direction: column; gap: 1em; }
+}
+
 
   
 
