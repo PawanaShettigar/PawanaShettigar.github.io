@@ -2003,6 +2003,16 @@ input, select, textarea {
 	margin-bottom: 0.6em;
 }
 
+#bg {
+	background:
+		url(cosmicbgformywebsite.jpg)
+	center center /cover no-repeat fixed;
+	filter: blur(1px);
+	opacity: 0.88;
+	position: fixed;
+	top: 0; left: 0; width: 100vw; height: 100vh;
+	z-index: 0;
+}
 
 
 
