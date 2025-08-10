@@ -1806,7 +1806,7 @@ input, select, textarea {
 		 }
 
 /* Professional pink/nebula background */
-#poems {
+#poem {
   background: linear-gradient(135deg, #E8AAB7 0%, #3A1459 100%);
   /* Optional: add your nebula image as a background below */
   /* background-image: url('images/your-nebula-image.jpg'); */
@@ -1894,6 +1894,7 @@ input, select, textarea {
 
 
   
+
 
 
 
