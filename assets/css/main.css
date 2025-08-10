@@ -2004,7 +2004,7 @@ input, select, textarea {
 }
 
 #bg {
-	background: url(cosmicbgformywebsite.jpg) center center /cover no-repeat fixed;
+	background: url('cosmicbgformywebsite.jpg') center center /cover no-repeat fixed;
 	filter: blur(1px);
 	opacity: 0.88;
 	position: fixed;
