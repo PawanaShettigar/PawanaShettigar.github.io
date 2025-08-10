@@ -1996,7 +1996,13 @@ input, select, textarea {
 .panel-main .section-title,
 .panel-light .section-title {
 	color: #fff !important;
+	text-shadow:
+		0 3px 10px #36001e,
+		0 2px 18px #A50050cc;
+	letter-spacing: 1px;
+	margin-bottom: 0.6em;
 }
+
 
 
 
