@@ -2017,6 +2017,13 @@ input, select, textarea {
 
 
 
+#bg:after {
+    background-image: url('cosmicbgformywebsite.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
 
 
 
