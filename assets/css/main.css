@@ -1953,20 +1953,20 @@ input, select, textarea {
   
 
 .panel-main {
-  background: linear-gradient(115deg, #e02465 0%, #ff3b9d 100%);
+  background: linear-gradient(120deg, #A50050 0%, #7A003E 100%);
   color: #fff;
   border-radius: 18px;
-  box-shadow: 0 3px 40px rgba(224,36,101,0.10);
+  box-shadow: 0 3px 40px rgba(165,0,80,0.10);
   padding: 2em;
   margin-bottom: 2em;
 }
 
 /* Softer panel for contrast */
 .panel-light {
-  background: rgba(255, 227, 238, 0.92); /* #ffe3ee */
-  color: #e02465;
+  background: linear-gradient(120deg, #ffe6f0 0%, #f6bad8 100%) ; 
+  color: #A50050;
   border-radius: 18px;
-  box-shadow: 0 2px 18px #ffb3c645;
+  box-shadow: 0 2px 18px #b496b53b;
   padding: 2em;
 }
 
@@ -1992,6 +1992,7 @@ input, select, textarea {
   background: #fd1d7c;
   color: #ffe3ee;
 }
+
 
 
 
