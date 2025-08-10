@@ -431,7 +431,7 @@ document.querySelectorAll('.back').forEach(function(link){
       p.classList.remove('active');
       p.classList.add('hidden');
     });
-    window.location.hash = "#poems";
+    window.location.hash = "#poem";
   });
 });
 
@@ -466,7 +466,7 @@ document.addEventListener('DOMContentLoaded', function() {
       p.classList.remove('active');
       p.classList.add('hidden');
     });
-    window.location.hash = "#poems";
+    window.location.hash = "#poem";
   }
 
   // Show a poem section
@@ -493,7 +493,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.back').forEach(function(link){
     link.addEventListener('click', function(e){
       e.preventDefault();
-      showPoemsList();
+      showPoemList();
     });
   });
 
@@ -514,3 +514,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
