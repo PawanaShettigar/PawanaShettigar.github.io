@@ -1893,6 +1893,63 @@ input, select, textarea {
 }
 
 
+#poem {
+  background: linear-gradient(125deg, #e02465 0%, #ff3b9d 100%);
+  color: #fff; /* Main text */
+}
+
+/* Poem List/Card Panels */
+.poem-list {
+  background: rgba(255, 227, 238, 0.93); /* #ffe3ee, semi-transparent */
+  border-radius: 20px;
+  box-shadow: 0 2px 32px rgba(224,36,101,0.07);
+  padding: 2em;
+}
+
+.button-nav {
+  background: #ff3b9d;
+  color: #fff; /* for strong contrast */
+  border: none;
+  border-radius: 9px;
+  padding: 0.7em 1.6em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: background 0.18s, color 0.18s;
+}
+.button-nav:hover {
+  background: #fd1d7c;
+  color: #ffe3ee;
+}
+
+.book-title {
+  color: #e02465;
+  text-shadow: 0 1px 5px #ffb3c680;
+}
+
+.poem-nav a {
+  color: #fd1d7c;
+  font-weight: 600;
+  text-decoration: underline;
+}
+.poem-nav a:hover {
+  color: #ffb3c6;
+}
+
+.intro, .poem-nav-row {
+  color: #e02465;
+}
+
+.poem {
+  background: rgba(255, 227, 238, 0.85); /* subtle nebula haze */
+  border-radius: 14px;
+  margin-top: 1.5em;
+  padding: 1.2em 1.6em;
+  box-shadow: 0 2px 16px #ffb3c655;
+}
+
+@media (max-width:600px) {
+  .poem-nav-row { flex-direction: column; gap: 1em; }
+}
   
 
 
