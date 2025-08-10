@@ -443,11 +443,12 @@ document.querySelectorAll('.next-poem, .prev-poem').forEach(function(link){
   });
 });
 
+
 document.addEventListener('DOMContentLoaded', function() {
   // Show poem list after welcome
-  var viewPoemsBtn = document.getElementById('view-poems-btn');
-  if (viewPoemsBtn) {
-    viewPoemsBtn.addEventListener('click', function() {
+  var viewPoemBtn = document.getElementById('view-poem-btn');
+  if (viewPoemBtn) {
+    viewPoemBtn.addEventListener('click', function() {
       document.getElementById('poem-welcome').classList.remove('active');
       document.getElementById('poem-welcome').classList.add('hidden');
       document.getElementById('poem-list').classList.remove('hidden');
@@ -456,7 +457,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Back to welcome/list
-  function showPoemsList() {
+  function showPoemList() {
     document.getElementById('poem-welcome').classList.remove('hidden');
     document.getElementById('poem-welcome').classList.add('active');
     document.getElementById('poem-list').classList.remove('active');
