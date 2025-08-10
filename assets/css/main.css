@@ -2004,15 +2004,17 @@ input, select, textarea {
 }
 
 #bg {
-	background:
-		url(cosmicbgformywebsite.jpg)
-	center center /cover no-repeat fixed;
+	background: url(cosmicbgformywebsite.jpg) center center /cover no-repeat fixed;
 	filter: blur(1px);
 	opacity: 0.88;
 	position: fixed;
-	top: 0; left: 0; width: 100vw; height: 100vh;
+	top: 0; 
+	left: 0; 
+	width: 100vw; 
+	height: 100vh;
 	z-index: 0;
 }
+
 
 
 
