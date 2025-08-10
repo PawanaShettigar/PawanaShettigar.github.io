@@ -1972,7 +1972,7 @@ input, select, textarea {
 
 /* Section headings */
 .section-title {
-  color: #ff3b9d;
+  color: #fff;
   text-shadow: 0 1px 4px #e0246580;
   margin-bottom: 0.6em;
 }
@@ -1992,6 +1992,7 @@ input, select, textarea {
   background: #fd1d7c;
   color: #ffe3ee;
 }
+
 
 
 
