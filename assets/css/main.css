@@ -2026,6 +2026,20 @@ input, select, textarea {
 }
 
 
+#bg:after {
+    -moz-transform: scale(1.125);
+    -webkit-transform: scale(1.125);
+    -ms-transform: scale(1.125);
+    transform: scale(1.125);
+    /* transition lines omitted for brevity */
+    background-image: url("../../images/bg.jpg");  /* <-- THIS IS YOUR OLD BG */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+
 
 
 
