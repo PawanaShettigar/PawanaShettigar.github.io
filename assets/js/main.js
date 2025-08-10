@@ -1,3 +1,39 @@
+// List of your main panel IDs (match your HTML exactly!)
+const panelIds = [
+    "intro",
+    "CV",
+    "research-work-and-projects",
+    "poem",
+    "cosmic-vault",
+    "contact"
+];
+
+// Universal function to show the requested panel and hide others
+function showPanel(panelId) {
+    panelIds.forEach(function(id) {
+        const panel = document.getElementById(id);
+        if (panel) panel.style.display = "none";
+    });
+    const target = document.getElementById(panelId);
+    if (target) target.style.display = "block";
+}
+
+// On page load, show Intro panel (change this if you want a different default)
+showPanel("intro");
+
+// Listen for navigation clicks—the #header nav links
+document.querySelectorAll("#header nav a").forEach(function(link){
+    link.addEventListener("click", function(e){
+        const targetId = this.getAttribute("href").replace("#", "");
+        if (panelIds.includes(targetId)) {
+            e.preventDefault();
+            showPanel(targetId);
+            // Optional: highlight the active tab
+            document.querySelectorAll("#header nav a").forEach(a => a.classList.remove("active"));
+            this.classList.add("active");
+        }
+    });
+});
 /*
 	Dimension by HTML5 UP
 	html5up.net | @ajlkn
