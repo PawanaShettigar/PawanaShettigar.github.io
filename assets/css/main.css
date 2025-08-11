@@ -2049,6 +2049,10 @@ input, select, textarea {
 
 
 
+#bg:before {
+    background-image: none;
+    z-index: 2;
+}
 
 
 
