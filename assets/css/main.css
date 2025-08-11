@@ -2054,6 +2054,10 @@ input, select, textarea {
     z-index: 2;
 }
 
+h2, h3 {
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
 
 
 
