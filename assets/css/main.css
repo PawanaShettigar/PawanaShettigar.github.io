@@ -1988,12 +1988,15 @@ input, select, textarea {
 	margin-bottom: 0.6em;
 }
 
-
-
 h2, h3 {
   word-break: keep-all;
   overflow-wrap: normal;
 }
+
+#header .content h1 {
+	text-transform: none !important;
+}
+
 
 
 
