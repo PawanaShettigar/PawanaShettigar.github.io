@@ -2003,61 +2003,13 @@ input, select, textarea {
 	margin-bottom: 0.6em;
 }
 
-#bg {
-	background: url('cosmicbgformywebsite.jpg') center center /cover no-repeat fixed;
-	filter: blur(1px);
-	opacity: 0.88;
-	position: fixed;
-	top: 0; 
-	left: 0; 
-	width: 100vw; 
-	height: 100vh;
-	z-index: 0;
-}
 
-
-
-#bg:after {
-    background-image: url('cosmicbgformywebsite.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: 1;
-}
-
-
-#bg:after {
-    -moz-transform: scale(1.125);
-    -webkit-transform: scale(1.125);
-    -ms-transform: scale(1.125);
-    transform: scale(1.125);
-    /* transition lines omitted for brevity */
-    background-image: url("../../images/bg.jpg");  /* <-- THIS IS YOUR OLD BG */
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: 1;
-}
-
-#bg:after {
-    background-image: url('../../cosmicbgformywebsite.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: 1;
-}
-
-
-
-#bg:before {
-    background-image: none;
-    z-index: 2;
-}
 
 h2, h3 {
   word-break: keep-all;
   overflow-wrap: normal;
 }
+
 
 
 
