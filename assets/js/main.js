@@ -515,4 +515,18 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+ <script>
+const numStars = 60; // More stars = denser field
+const field = document.getElementById('starfield');
+for (let i = 0; i < numStars; i++) {
+  const star = document.createElement('div');
+  star.className = 'star';
+  // Random vertical and horizontal position
+  star.style.top = Math.random() * 100 + "vh";
+  star.style.left = Math.random() * 100 + "vw";
+  // Randomize animation delay for natural twinkle
+  star.style.animationDelay = (Math.random() * 2.5) + "s";
+  field.appendChild(star);
+}
+</script>
 
