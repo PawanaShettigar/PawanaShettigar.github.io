@@ -2000,31 +2000,6 @@ h2, h3 {
 
 
 
- #starfield {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0; /* Make sure your panels and text are above */
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.star {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: radial-gradient(circle at 40% 40%, #ff73c5 60%, transparent 100%);
-  border-radius: 50%;
-  opacity: 0.35;
-  animation: twinkle 2.5s infinite;
-  box-shadow: 0 0 18px 3px #ff73c570, 0 0 4px #fff;
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.30; }
-  50% { opacity: 0.65; }
-}
 
 
 
