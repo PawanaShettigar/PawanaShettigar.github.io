@@ -2011,19 +2011,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/* Remove the frame/lines around the header title block */
-#header .content {
-  border: none !important;
-}
 
-#header .content::before,
-#header .content::after {
-  display: none !important;
-}
 
-#header .content .inner {
-  border: none !important;
-}
 
 
 
