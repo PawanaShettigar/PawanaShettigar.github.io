@@ -1900,6 +1900,7 @@ input, select, textarea {
   font-weight: 700;
   letter-spacing: 0.05em;
   transition: background 0.18s, color 0.18s;
+  text-align: center;
 }
 .button-nav:hover {
   background: #fd1d7c;
@@ -2004,6 +2005,7 @@ h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word !important;
   white-space: normal;
 }
+
 
 
 
