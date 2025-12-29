@@ -2004,7 +2004,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-
+/* Remove only the vertical side lines in the header frame */
+#header .content::before,
+#header .content::after {
+  display: none !important;
+}
 
 
 
