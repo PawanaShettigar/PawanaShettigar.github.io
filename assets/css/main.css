@@ -1857,6 +1857,7 @@ input, select, textarea {
   box-shadow: none;
   transition: background 0.2s, color 0.2s;
   text-align: center;
+  margin-top: 0;
 }
 .button-nav:hover {
   background: #CB7998; /* muted pink hover */
@@ -1901,6 +1902,7 @@ input, select, textarea {
   letter-spacing: 0.05em;
   transition: background 0.18s, color 0.18s;
   text-align: center;
+  margin-top: 0;
 }
 .button-nav:hover {
   background: #fd1d7c;
@@ -2005,6 +2007,7 @@ h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word !important;
   white-space: normal;
 }
+
 
 
 
