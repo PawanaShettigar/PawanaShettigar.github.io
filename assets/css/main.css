@@ -2003,14 +2003,11 @@ h1, h2, h3, h4, h5, h6 {
   white-space: normal;
 }
 
-
-/* Remove only the vertical side lines in the header frame */
-#header .content::before,
-#header .content::after {
-  display: none !important;
+/* Keep the diamond connector + horizontal lines, remove only side borders */
+#header .content .inner {
+  border-left: 0 !important;
+  border-right: 0 !important;
 }
-
-
 
 
 
