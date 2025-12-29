@@ -1,4 +1,4 @@
-@import url(fontawesome-all.min.css);
+@import url(fontawesome-all.min.css);+
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600");
 
 /*
@@ -1989,8 +1989,8 @@ input, select, textarea {
 }
 
 h2, h3 {
-  word-break: keep-all;
-  overflow-wrap: normal;
+  word-break: normal;
+  overflow-wrap: breakword;
 }
 
 #header .content h1 {
@@ -2004,6 +2004,7 @@ h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word !important;
   white-space: normal;
 }
+
 
 
 
