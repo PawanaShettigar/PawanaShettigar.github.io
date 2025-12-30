@@ -1798,6 +1798,16 @@ a:hover {
     color: #fff;
 }
  
+/* FORCE MAIN MENU BACK TO WHITE */
+#header nav ul li a {
+    color: #ffffff !important; /* Keep the menu text white */
+}
+
+/* Optional: Keep the hover effect subtle (white with background) */
+#header nav ul li a:hover {
+    color: #ffffff !important;
+}
+
 
 
 
