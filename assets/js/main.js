@@ -446,27 +446,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Main Event Listener ---
     // We attach one listener to the body to catch clicks on ANY navigation button
-    document.body.addEventListener('click', (e) => {
+        // --- Main Event Listener (Use Capture Phase) ---
+    // The {capture: true} ensures this runs BEFORE the template's click listeners
+    window.addEventListener('click', (e) => {
         
-        // Check if the clicked element (or its parent) has the 'data-target' attribute
-        // This covers <button data-target=".."> and any icon inside it
         const btn = e.target.closest('[data-target]');
         
         if (btn) {
-            // CRITICAL: Stop the browser from doing anything else
+            // STOP everything else immediately
             e.preventDefault(); 
-            e.stopPropagation(); 
+            e.stopImmediatePropagation(); // Stronger than stopPropagation()
             
             const targetId = btn.getAttribute('data-target');
-            
-            // If the button tells us where to go, switch to that section
             if (targetId) {
                 switchPoemSection(targetId);
             }
         }
-    });
+    }, { capture: true }); // <--- IMPORTANT: Capture Phase
+
 
 });
+
 
 
 
