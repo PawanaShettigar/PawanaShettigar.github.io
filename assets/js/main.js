@@ -402,118 +402,76 @@
 })(jQuery);
 
 
-function showPoem(poemId) {
-  document.querySelectorAll('.poem').forEach(function(p) {
-    p.classList.remove('active');
-    p.classList.add('hidden');
-  });
-  var poemSection = document.getElementById(poemId);
-  if (poemSection) {
-    poemSection.classList.add('active');
-    poemSection.classList.remove('hidden');
-  }
-  window.location.hash = '#' + poemId;
-}
+/* 
+   ==========================================================================
+   CUSTOM POEM NAVIGATION (Robust Button Version)
+   ==========================================================================
+   This logic handles the internal navigation inside the "Poems" article.
+   It works by listening for clicks on <button> elements with a "data-target" attribute.
+   
+   Why Buttons? 
+   Using <button> instead of <a href> prevents the main site template from 
+   detecting a URL change (hash change) and closing the article unexpectedly.
+*/
 
-// Show poem when a title is clicked
-document.querySelectorAll('.poem-nav a').forEach(function(link){
-  link.addEventListener('click', function(e){
-    e.preventDefault();
-    showPoem(link.getAttribute('href').replace('#', ''));
-  });
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- Helper Function: Switch Visible Section ---
+    // Hides all poem parts and shows only the one matching targetId
+    function switchPoemSection(targetId) {
+        
+        // 1. Hide everything inside the #poem article
+        const allSections = document.querySelectorAll('.poem-welcome, .poem-list, .poem');
+        allSections.forEach(el => {
+            el.classList.add('hidden');   // CSS class to display: none
+            el.classList.remove('active'); // CSS class to fade in/display: block
+        });
+
+        // 2. Find and Show the specific target section
+        const target = document.getElementById(targetId);
+        if (target) {
+            target.classList.remove('hidden');
+            target.classList.add('active');
+            
+            // 3. Auto-scroll to top of the article
+            // This ensures the user sees the title of the new poem, not the bottom footer
+            const mainArticle = document.getElementById('poem');
+            if(mainArticle) {
+                mainArticle.scrollTop = 0;
+            }
+        } else {
+            console.warn(`Target section #${targetId} not found in HTML.`);
+        }
+    }
+
+    // --- Main Event Listener ---
+    // We attach one listener to the body to catch clicks on ANY navigation button
+    document.body.addEventListener('click', (e) => {
+        
+        // Check if the clicked element (or its parent) has the 'data-target' attribute
+        // This covers <button data-target=".."> and any icon inside it
+        const btn = e.target.closest('[data-target]');
+        
+        if (btn) {
+            // CRITICAL: Stop the browser from doing anything else
+            e.preventDefault(); 
+            e.stopPropagation(); 
+            
+            const targetId = btn.getAttribute('data-target');
+            
+            // If the button tells us where to go, switch to that section
+            if (targetId) {
+                switchPoemSection(targetId);
+            }
+        }
+    });
+
 });
 
-// Back to poem list
-document.querySelectorAll('.back').forEach(function(link){
-  link.addEventListener('click', function(e){
-    e.preventDefault();
-    document.querySelectorAll('.poem').forEach(function(p){
-      p.classList.remove('active');
-      p.classList.add('hidden');
-    });
-    window.location.hash = "#poem";
-  });
-});
-
-// Next/Previous poem navigation
-document.querySelectorAll('.next-poem, .prev-poem').forEach(function(link){
-  link.addEventListener('click', function(e){
-    e.preventDefault();
-    showPoem(link.getAttribute('href').replace('#',''));
-  });
-});
 
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Show poem list after welcome
-  var viewPoemBtn = document.getElementById('view-poem-btn');
-  if (viewPoemBtn) {
-    viewPoemBtn.addEventListener('click', function() {
-      document.getElementById('poem-welcome').classList.remove('active');
-      document.getElementById('poem-welcome').classList.add('hidden');
-      document.getElementById('poem-list').classList.remove('hidden');
-      document.getElementById('poem-list').classList.add('active');
-    });
-  }
 
-  // Back to welcome/list
-  function showPoemList() {
-    document.getElementById('poem-welcome').classList.remove('hidden');
-    document.getElementById('poem-welcome').classList.add('active');
-    document.getElementById('poem-list').classList.remove('active');
-    document.getElementById('poem-list').classList.add('hidden');
-    document.querySelectorAll('.poem').forEach(function(p){
-      p.classList.remove('active');
-      p.classList.add('hidden');
-    });
-    window.location.hash = "#poem";
-  }
 
-  // Show a poem section
-  document.querySelectorAll('.poem-nav a').forEach(function(link){
-    link.addEventListener('click', function(e){
-      e.preventDefault();
-      document.getElementById('poem-list').classList.remove('active');
-      document.getElementById('poem-list').classList.add('hidden');
-      document.querySelectorAll('.poem').forEach(function(p){
-        p.classList.remove('active');
-        p.classList.add('hidden');
-      });
-      var poemId = link.getAttribute('href').replace('#', '');
-      var poemSection = document.getElementById(poemId);
-      if (poemSection) {
-        poemSection.classList.add('active');
-        poemSection.classList.remove('hidden');
-      }
-      window.location.hash = '#' + poemId;
-    });
-  });
-
-  // Back button to list (welcome)
-  document.querySelectorAll('.back').forEach(function(link){
-    link.addEventListener('click', function(e){
-      e.preventDefault();
-      showPoemList();
-    });
-  });
-
-  // Next/Previous poem navigation
-  document.querySelectorAll('.next-poem, .prev-poem').forEach(function(link){
-    link.addEventListener('click', function(e){
-      e.preventDefault();
-      document.querySelectorAll('.poem').forEach(function(p){
-        p.classList.remove('active'); p.classList.add('hidden');
-      });
-      var poemId = link.getAttribute('href').replace('#','');
-      var poemSection = document.getElementById(poemId);
-      if (poemSection) {
-        poemSection.classList.add('active');
-        poemSection.classList.remove('hidden');
-      }
-      window.location.hash = '#' + poemId;
-    });
-  });
-});
 
 
 
