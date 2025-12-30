@@ -1885,6 +1885,7 @@ a:hover {
 
 .active {
     display: block !important;
+	animation: fadeIn 0.5s ease;
 }
 
 /* Smooth fade transitions for poem sections */
@@ -1969,6 +1970,7 @@ textarea:focus {
     display: block !important;
     width: 100% !important;
 }
+
 
 
 
