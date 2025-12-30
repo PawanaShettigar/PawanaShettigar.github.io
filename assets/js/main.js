@@ -515,80 +515,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-/* 
-  Custom Logic for Poem Section Navigation 
-  Handles: Welcome -> List -> Individual Poem -> Back
-*/
-document.addEventListener('DOMContentLoaded', () => {
-    const poemWelcome = document.getElementById('poem-welcome');
-    const poemList = document.getElementById('poem-list');
-    const viewPoemBtn = document.getElementById('view-poem-btn');
-    const poems = document.querySelectorAll('.poem');
-    
-    // 1. "See poems" button click (Welcome -> List)
-    if(viewPoemBtn) {
-        viewPoemBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            poemWelcome.classList.remove('active');
-            poemWelcome.classList.add('hidden');
-            poemList.classList.remove('hidden');
-            poemList.classList.add('active');
-        });
-    }
 
-    // 2. Handle clicks on the poem list links (List -> Poem Detail)
-    const poemLinks = document.querySelectorAll('.poem-nav a');
-    poemLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            // Allow default hash behavior but manage visibility
-            const targetId = link.getAttribute('href').substring(1); // remove #
-            const targetPoem = document.getElementById(targetId);
 
-            if (targetPoem) {
-                // Hide list
-                poemList.classList.remove('active');
-                poemList.classList.add('hidden');
-                
-                // Show target poem
-                poems.forEach(p => p.classList.remove('active'));
-                targetPoem.classList.add('active');
-            }
-        });
-    });
-
-    // 3. "Back to poems" buttons (Poem Detail -> List)
-    const backButtons = document.querySelectorAll('.back.button-nav');
-    backButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            // Hide all poems
-            poems.forEach(p => p.classList.remove('active'));
-            
-            // Show list
-            poemList.classList.remove('hidden');
-            poemList.classList.add('active');
-        });
-    });
-
-    // 4. "Next" buttons (Poem Detail -> Next Poem)
-    const nextButtons = document.querySelectorAll('.next-poem.button-nav');
-    nextButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            // Let the href anchor handle the URL change, just update classes
-            const targetId = btn.getAttribute('href').substring(1);
-            const targetPoem = document.getElementById(targetId);
-            
-            if(targetPoem) {
-                 // Hide current poem (parent of the button's container)
-                 const currentPoem = btn.closest('.poem');
-                 currentPoem.classList.remove('active');
-                 
-                 // Show next poem
-                 targetPoem.classList.add('active');
-            }
-        });
-    });
-});
 
 
 
