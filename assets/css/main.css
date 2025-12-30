@@ -1762,24 +1762,60 @@ a:hover {
     letter-spacing: 0.1em;
     border: none;
     box-shadow: 0 4px 15px rgba(224, 36, 101, 0.4);
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); /* Smooth easing */
     cursor: pointer;
     text-decoration: none;
+    font-size: 0.9em;
+    position: relative;
+    overflow: hidden;
 }
 
 .button-nav:hover, .pink-btn:hover {
     background: linear-gradient(45deg, #e02465, #ff3b9d);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(224, 36, 101, 0.6);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(224, 36, 101, 0.7);
 }
 
-.poem-nav-row {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 3em;
-    padding-top: 1em;
-    border-top: 1px solid rgba(255,255,255,0.1);
+.button-nav:active, .pink-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(224, 36, 101, 0.5);
 }
+
+/* Focus state for keyboard accessibility */
+.button-nav:focus, .pink-btn:focus {
+    outline: 2px solid #ffb3c6;
+    outline-offset: 2px;
+}
+
+/* Style for list item buttons (text-like appearance) */
+.poem-nav button.text-link {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    color: #ffffff;
+    text-decoration: underline;
+    text-transform: none;
+    letter-spacing: 0.05em;
+    font-size: 1.1em;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    font-weight: 400;
+    padding: 0.75rem 0;
+    transition: color 0.2s ease;
+}
+
+.poem-nav button.text-link:hover {
+    color: #ff3b9d;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.poem-nav button.text-link:focus {
+    outline: none;
+    border-bottom: 2px solid #ffb3c6;
+}
+
 
 /* 6. Footer Cleanup */
 #footer .copyright {
@@ -1839,6 +1875,85 @@ a:hover {
     }
 }
 
+/* ========================================================================== */
+/* VISIBILITY TOGGLE CLASSES (for JS controlled elements) */
+/* ========================================================================== */
+
+.hidden {
+    display: none !important;
+}
+
+.active {
+    display: block !important;
+}
+
+/* Smooth fade transitions for poem sections */
+.poem-welcome.active,
+.poem-list.active,
+.poem.active {
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================================================== */
+/* SMOOTH SCROLL & PROFESSIONAL POLISH */
+/* ========================================================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Better transitions for article fade-in/out */
+#main article {
+    will-change: opacity, transform;
+}
+
+/* Smooth color transitions on links */
+a {
+    transition: color 0.2s ease, border-bottom-color 0.2s ease;
+}
+
+/* Add subtle backdrop blur to poem sections */
+#poem, #research-work-and-projects {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* Improve form input focus states */
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #ff3b9d;
+    box-shadow: 0 0 0 3px rgba(255, 59, 157, 0.2);
+}
+
+/* Subtle hover effect on article cards */
+#main article:not(.active) {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Improve footer social icons hover */
+#footer ul.icons li a {
+    transition: all 0.3s ease;
+}
+
+#footer ul.icons li a:hover {
+    background-color: rgba(255, 59, 157, 0.15);
+    transform: translateY(-3px);
+    box-shadow: inset 0 0 0 1px #ff3b9d, 0 4px 12px rgba(255, 59, 157, 0.3);
+}
 
 
 
