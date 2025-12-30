@@ -1862,18 +1862,13 @@ a:hover {
 
 /* Make buttons stack on small phones */
 @media screen and (max-width: 480px) {
-    .poem-nav-row {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: stretch; /* Make buttons full width */
-    }
-    
     .button-nav {
-        width: 100%; /* Full width buttons are easier to tap */
-        text-align: center;
-        margin: 0 !important;
+        width: auto !important; /* Keep it button-sized */
+        display: inline-block !important;
+        margin: 0 auto !important;
     }
 }
+
 
 /* ========================================================================== */
 /* VISIBILITY TOGGLE CLASSES (for JS controlled elements) */
@@ -1970,6 +1965,7 @@ textarea:focus {
     display: block !important;
     width: 100% !important;
 }
+
 
 
 
