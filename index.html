@@ -72,14 +72,15 @@
 							</article>
 						
 						<!-- Poems -->
-<article id="poem">
-    <!-- Screen 1: Welcome -->
+<article id="poem" class="panel-main">
+ <!-- Screen 1: Welcome -->
     <div id="poem-welcome" class="poem-welcome active">
         <h2 class="section-title">Poetry Collection</h2>
         <span class="image main"><img src="images/pic03.jpg" alt="Space Art" /></span>
         <p>This is where I pour my feelings and "let-go" of any bitterness by interconnecting my emotions "metaphorically" with space &lt;3</p>
         <div style="text-align: center;">
-            <button id="view-poem-btn" class="button-nav">Enter Archive</button>
+            <!-- CHANGED: Added data-target="poem-list" -->
+            <button class="button-nav" data-target="poem-list">Enter Archive</button>
         </div>
     </div>
 
@@ -89,27 +90,29 @@
         <p class="intro" style="text-align: center;">Select a frequency to tune into...</p>
         <nav class="poem-nav">
             <ul>
-                <li><a href="#poem-1">Thought I finally seized the edge</a></li>
-                <li><a href="#poem-2">The Whispers of the Galaxies</a></li>
-                <li><a href="#poem-3">Were you my Jupiter?</a></li>
-                <li><a href="#poem-4">Critical to Escape</a></li>
+                <!-- CHANGED: All <a> become <button class="text-link"> with data-target -->
+                <li><button class="text-link" data-target="poem-1">Thought I finally seized the edge</button></li>
+                <li><button class="text-link" data-target="poem-2">The Whispers of the Galaxies</button></li>
+                <li><button class="text-link" data-target="poem-3">Were you my Jupiter?</button></li>
+                <li><button class="text-link" data-target="poem-4">Critical to Escape</button></li>
             </ul>
         </nav>
     </div>
 
     <!-- Screen 3: Individual Poems -->
+    
     <!-- Poem 1 -->
     <div id="poem-1" class="poem hidden">
         <h3 class="major">Thought I finally seized the edge</h3>
         <p class="intro">This poem does not have any space metaphors, but it being one of my first work made me add it here in this section</p>
         <p>
             [poem verse 1]<br>
-			[poem verse 2]
-            
+            [poem verse 2]
         </p>
         <div class="poem-nav-row">
-            <a href="#poem-list" class="back button-nav">&larr; Back</a>
-            <a href="#poem-2" class="next-poem button-nav">Next Poem &rarr;</a>
+            <!-- CHANGED: <a> become <button> with data-target -->
+            <button class="back button-nav" data-target="poem-list">&larr; Back to List</button>
+            <button class="next-poem button-nav" data-target="poem-2">Next Poem &rarr;</button>
         </div>
     </div>
 
@@ -118,31 +121,33 @@
         <h3 class="major">The Whispers of the Galaxies</h3>
         <p>Verse of poem 2 goes here...</p>
         <div class="poem-nav-row">
-            <a href="#poem-1" class="back button-nav">&larr; Back</a>
-            <a href="#poem-3" class="next-poem button-nav">Next &rarr;</a>
+            <button class="back button-nav" data-target="poem-1">Previous</button>
+            <button class="next-poem button-nav" data-target="poem-3">Next &rarr;</button>
         </div>
     </div>
     
     <!-- Poem 3 -->
-	<div id="poem-3" class="poem hidden">
-		<h3 class="major">Were you my Jupiter?</h3>
-		<p>Verse of poem 3</p>
-		<div class="poem-nav-row">
-            <a href="#poem-2" class="back button-nav">&larr; Back</a>
-            <a href="#poem-4" class="next-poem button-nav">Next &rarr;</a>
+    <div id="poem-3" class="poem hidden">
+        <h3 class="major">Were you my Jupiter?</h3>
+        <p>Verse of poem 3</p>
+        <div class="poem-nav-row">
+            <button class="back button-nav" data-target="poem-2">Previous</button>
+            <button class="next-poem button-nav" data-target="poem-4">Next &rarr;</button>
         </div>
-	</div>
+    </div>
 
-	    <!-- Poem 4 -->
-	<div id="poem-4" class="poem hidden">
-		<h3 class="major">Were you my Jupiter?</h3>
-		<p>Verse of poem 4</p>
-		<div class="poem-nav-row">
-            <a href="#poem-3" class="back button-nav">&larr; Back</a>
-            <a href="#poem-1" class="next-poem button-nav">Next &rarr;</a>
+    <!-- Poem 4 -->
+    <div id="poem-4" class="poem hidden">
+        <h3 class="major">Critical to Escape</h3>
+        <p>Verse of poem 4</p>
+        <div class="poem-nav-row">
+            <button class="back button-nav" data-target="poem-3">Previous</button>
+            <button class="next-poem button-nav" data-target="poem-list">Back to List &rarr;</button>
         </div>
-	</div>
+    </div>
+
 </article>
+
 
 
 						<!-- Cosmic vault -->
@@ -458,6 +463,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 	</body>
 </html>
+
 
 
 
