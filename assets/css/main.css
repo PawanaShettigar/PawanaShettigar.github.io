@@ -1645,369 +1645,159 @@ input, select, textarea {
 			opacity: 0;
 		}
 
-        /* --- Custom fix for long menu text --- */
-        #nav a {
-			white-space: nowrap;   /* Stop text from breaking into two lines */
-            font-size: 0.95em;     /* Slightly smaller text so it fits better */
-		}
+       /* ==========================================================================
+   CUSTOM COSMIC THEME OVERRIDES
+   ========================================================================== */
 
-        /* Makes sure content will wrap inside articles */
-        #main article {
-			word-break: break-word;
-			overflow-wrap: break-word;
-			max-width: 100%;
-		}
-
-        .content,  .inner  {
-			word-break: break-word;
-			overflow-wrap: break-word;
-			max-width: 100%;
-		}
-
-        #main {
-			width: 100vw !important;
-			max-width: 100vw !important;
-			box-sizing: border-box !important;
-		}
-
-        #main article {
-			width: 100% !important;
-			max-width: 700px !important;
-			margin: 0 auto !important;
-			box-siziing: border-box !important;
-			padding: 2em 1.5em !important;
-			word-break: break-all !important;
-			overflow-wrap: anywhere !important;
-		}
-
-        #main article h2,
-        #main article p{
-			word-break: break-all !important;
-			overflow-wrap: anywhere !important;
-			white-space: normal !important;
-		}
-
-        .next-poem,
-        .prev-poem {
-			display: inline-block; /* Makes them behave like small buttons */
-            margin: 1em 1em 0 0; /* Top/right spacing so they don't stick to other elements */
-            font-size: 1em; /* Easy to read */
-            color: #ffd700; /* Gold/yellow to stand out (you can change this!) */
-            text-decoration: underline; /* Shows it's a link */
-            cursor: pointer; /* Mouse pointer changes to a hand */
-            background: none; /* No background by default */
-            border: none; /* No border */
-            transition: color 0.2s, background 0.2s; /* Smooth hover effect */
-        }
-         .next-poem:hover,
-         .prev-poem:hover {
-			 color: #fff; /* Turns white when hovered */
-             background: #ffd70022; /* Subtle gold background when hovered */
-        }
-        
-        /* Book Title styling */
-        .book-title {
-			font-weight: 600;
-            font-size: 1.25em;
-            color: #ffd700;
-            margin-top: -1em;
-            margin-bottom: 1em;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-		}
-    
-        /* Introduction styling */
-        .intro {
-			font-style: italic;
-            font-size: 1.15em;
-            margin-bottom: 2em;
-            color: #ccc;
-        }
-
-        /* Poem list navigation links */
-        .poem-nav ul {
-			list-style: none;
-            padding-left: 0;
-            margin-bottom: 2em;
-		}
-        .poem-nav li {
-			margin-bottom: 0.5em;
-		}
-        .poem-nav a {
-			 font-size: 1.1em;
-             color: #ffd700;
-             text-decoration: underline;
-             cursor: pointer;
-         }
-
-         /* Poem section display logic */
-         .poem {
-			 display: none;
-             margin-top: 2em;
-		 }
-         .poem.active {
-			 display: block;
-		 }
-
-         /* Button styles for navigation */
-         .button-nav {
-			 display: inline-block;
-             min-width: 120px;
-             padding: 0.6em 1.5em;
-             font-size: 1em;
-             font-weight: 600;
-             color: #1b1f22;
-             background: #ffd700;
-             border: none;
-             border-radius: 25px;
-             text-decoration: none;
-             cursor: pointer;
-             box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-             transition: background 0.2s, color 0.2s;
-		 }
- 
-         .button-nav:hover {
-			 background: #ffea70;
-             color: #222;
-		 }
-
-         /* Position Next on right, Back on left */
-         .poem-nav-row {
-			 display: flex;
-             justify-content: space-between;
-             align-items: center;
-             margin-top: 2em;
-             gap: 2em;
-             padding: 0 1em;
-		 }
-
-         /* Responsive: stack buttons on small screens */
-         @media (max-width: 600px) {
-			 .poem-nav-row {
-				 flex-direction: column;
-                 gap: 1em;
-			 }  
-		 }
-
-/* Professional pink/nebula background */
-#poem {
-  background: linear-gradient(135deg, #E8AAB7 0%, #3A1459 100%);
-  /* Optional: add your nebula image as a background below */
-  /* background-image: url('images/your-nebula-image.jpg'); */
-  background-size: cover;
-  background-position: center;
-  border-radius: 10px;
-  box-shadow: 0 4px 32px rgba(34,34,59,0.08);
-  color: #FFF;
-  font-family: 'Inter', 'Open Sans', sans-serif;
-  padding: 2em;
-}
-
-/* Show/hide logic */
-.poem-welcome, .poem-list, .poem {
-  margin-bottom: 2em;
-  display: none;
-}
-.poem-welcome.active, .poem-list.active, .poem.active { display: block; }
-.poem-welcome.hidden, .poem-list.hidden, .poem.hidden { display: none; }
-
-/* Title, intro, list */
-.book-title {
-  font-size: 1.5em;
-  font-weight: 700;
-  color: #FFF;
-  letter-spacing: 0.1em;
-  margin-bottom: 1em;
-}
-.intro {
-  font-size: 1.1em;
-  color: #B8B8B8;
-  font-style: italic;
-  margin-bottom: 2em;
-}
-.poem-nav ul {
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 2em;
-}
-.poem-nav li {
-  margin-bottom: 0.5em;
-}
-.poem-nav a {
-  font-size: 1.1em;
-  color: #A3B4F3; /* soft blue link */
-  text-decoration: underline;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-/* Button (navigation) styles */
-.button-nav {
-  min-width: 120px;
-  padding: 0.6em 1.5em;
-  font-size: 1em;
-  font-weight: 600;
-  color: #FFF;
-  background: #3A1459;
-  border: none;
-  border-radius: 6px;
-  text-decoration: none;
-  cursor: pointer;
-  box-shadow: none;
-  transition: background 0.2s, color 0.2s;
-}
-.button-nav:hover {
-  background: #CB7998; /* muted pink hover */
-  color: #22223B;
-}
-
-/* Flexible navigation row */
-.poem-nav-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 2em;
-  gap: 2em;
-  padding: 0 1em;
-}
-/* Responsive buttons stack */
-@media (max-width:600px) {
-  .poem-nav-row { flex-direction: column; gap: 1em; }
-}
-
-
-#poem {
-  background: linear-gradient(125deg, #e02465 0%, #ff3b9d 100%);
-  color: #fff; /* Main text */
-}
-
-/* Poem List/Card Panels */
-.poem-list {
-  background: rgba(255, 227, 238, 0.93); /* #ffe3ee, semi-transparent */
-  border-radius: 20px;
-  box-shadow: 0 2px 32px rgba(224,36,101,0.07);
-  padding: 2em;
-}
-
-.button-nav {
-  background: #ff3b9d;
-  color: #fff; /* for strong contrast */
-  border: none;
-  border-radius: 9px;
-  padding: 0.7em 1.6em;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  transition: background 0.18s, color 0.18s;
-}
-.button-nav:hover {
-  background: #fd1d7c;
-  color: #ffe3ee;
-}
-
-.book-title {
-  color: #e02465;
-  text-shadow: 0 1px 5px #ffb3c680;
-}
-
-.poem-nav a {
-  color: #fd1d7c;
-  font-weight: 600;
-  text-decoration: underline;
-}
-.poem-nav a:hover {
-  color: #ffb3c6;
-}
-
-.intro, .poem-nav-row {
-  color: #e02465;
-}
-
-.poem {
-  background: rgba(255, 227, 238, 0.85); /* subtle nebula haze */
-  border-radius: 14px;
-  margin-top: 1.5em;
-  padding: 1.2em 1.6em;
-  box-shadow: 0 2px 16px #ffb3c655;
-}
-
-@media (max-width:600px) {
-  .poem-nav-row { flex-direction: column; gap: 1em; }
-}
-  
-
-.panel-main {
-  background: linear-gradient(120deg, #A50050 0%, #7A003E 100%);
-  color: #fff;
-  border-radius: 18px;
-  box-shadow: 0 3px 40px rgba(165,0,80,0.10);
-  padding: 2em;
-  margin-bottom: 2em;
-}
-
-/* Softer panel for contrast */
-.panel-light {
-  background: linear-gradient(120deg, #ffe6f0 0%, #f6bad8 100%) ; 
-  color: #A50050;
-  border-radius: 18px;
-  box-shadow: 0 2px 18px #b496b53b;
-  padding: 2em;
-}
-
-/* Section headings */
-.section-title {
-  color: #fff;
-  text-shadow: 0 1px 4px #e0246580;
-  margin-bottom: 0.6em;
-}
-
-/* Pink accent buttons */
-.pink-btn {
-  background: #ff3b9d;
-  color: #fff;
-  border: none;
-  border-radius: 9px;
-  padding: 0.7em 1.4em;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  transition: background 0.15s, color 0.15s;
-}
-.pink-btn:hover {
-  background: #fd1d7c;
-  color: #ffe3ee;
-}
-
-.panel-main .section-title,
-.panel-light .section-title {
-	color: #fff !important;
-	text-shadow:
-		0 3px 10px #36001e,
-		0 2px 18px #A50050cc;
-	letter-spacing: 1px;
-	margin-bottom: 0.6em;
-}
-
-h2, h3 {
-  word-break: normal;
-  overflow-wrap: breakword;
+/* 1. Global Typography & Layout Fixes */
+body, p, li, a, span, blockquote, h1, h2, h3, h4, h5, h6 {
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
 }
 
 #header .content h1 {
-	text-transform: none !important;
+    text-transform: none !important; /* Preserves "Pawana Shettigar" casing */
+    letter-spacing: 0.15rem;
 }
 
-/* Global: prevent ugly mid-word breaks */
-body, p, li, a, span, blockquote,
-h1, h2, h3, h4, h5, h6 {
-  word-break: normal !important;
-  overflow-wrap: break-word !important;
-  white-space: normal;
-}
-
-/* Keep the diamond connector + horizontal lines, remove only side borders */
+/* Remove side borders on header for a cleaner look */
 #header .content .inner {
-  border-left: 0 !important;
-  border-right: 0 !important;
+    border-left: 0;
+    border-right: 0;
 }
+
+/* 2. Panel Styling (Glassmorphism + Nebula Colors) */
+/* Default Panel Background - Dark Glass */
+#main article {
+    background-color: rgba(27, 31, 34, 0.95); /* Slightly more opaque for readability */
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    padding: 3rem 2.5rem;
+}
+
+/* Special Pink/Nebula Panel for "Poems" & "Research" */
+#poem, #research-work-and-projects {
+    background: linear-gradient(135deg, #2b102f 0%, #1b1f22 100%);
+    border: 1px solid rgba(255, 59, 157, 0.2); /* Subtle pink border */
+}
+
+/* 3. Text & Headers */
+.section-title {
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(224, 36, 101, 0.6); /* Pink glow */
+    border-bottom: solid 1px rgba(255, 255, 255, 0.3);
+    padding-bottom: 0.5em;
+    margin-bottom: 1.5em;
+}
+
+h3 {
+    color: #ffb3c6; /* Soft pink for subheaders */
+}
+
+a {
+    color: #ff3b9d; /* Vibrant pink links */
+    border-bottom-color: rgba(255, 59, 157, 0.5);
+}
+
+a:hover {
+    color: #ff85c2;
+    border-bottom-color: transparent;
+}
+
+/* 4. Poem Section Specifics */
+/* Logic classes for JS toggling */
+.poem-welcome, .poem-list, .poem { display: none; }
+.poem-welcome.active, .poem-list.active, .poem.active { display: block; animation: fadeIn 0.5s ease; }
+.poem-welcome.hidden, .poem-list.hidden, .poem.hidden { display: none; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.poem-list {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 2em;
+    margin-top: 1em;
+}
+
+.poem-nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.poem-nav li {
+    margin: 1em 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 0.5em;
+}
+
+.poem-nav a {
+    font-size: 1.1em;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: none;
+    display: block;
+    transition: transform 0.2s;
+}
+
+.poem-nav a:hover {
+    transform: scale(1.05);
+    color: #fff;
+    text-shadow: 0 0 8px #ff3b9d;
+}
+
+/* 5. Buttons (Pink Nebula Style) */
+.button-nav, .pink-btn {
+    display: inline-block;
+    padding: 0.75em 2em;
+    background: linear-gradient(45deg, #ff3b9d, #e02465);
+    color: #fff !important;
+    font-weight: 600;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: none;
+    box-shadow: 0 4px 15px rgba(224, 36, 101, 0.4);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button-nav:hover, .pink-btn:hover {
+    background: linear-gradient(45deg, #e02465, #ff3b9d);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(224, 36, 101, 0.6);
+}
+
+.poem-nav-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3em;
+    padding-top: 1em;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* 6. Footer Cleanup */
+#footer .copyright {
+    color: #aaa;
+    margin-top: 2rem;
+    font-size: 0.7em;
+    line-height: 1.8;
+}
+
+#footer .copyright a {
+    color: #aaa;
+    border-bottom: none;
+}
+
+#footer .copyright a:hover {
+    color: #fff;
+}
+ 
 
 
 
