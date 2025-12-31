@@ -500,7 +500,8 @@
         }
     });
 
-})(jQuery);  // ← Don't delete this line! Just add code BEFORE it
+})(jQuery);  
+
 
 
 
