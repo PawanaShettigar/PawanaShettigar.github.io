@@ -2603,6 +2603,13 @@ textarea:focus {
     box-shadow: 0 0 8px rgba(255, 59, 157, 0.4);
 }
 
+/* Ensure these start hidden */
+.hidden {
+    display: none !important;
+    opacity: 0;
+    pointer-events: none;
+}
+
 
 
 
