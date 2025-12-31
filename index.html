@@ -99,6 +99,15 @@
         </nav>
     </div>
 
+     <!-- NEW: Pluto Button -->
+        <div style="text-align: center; margin-top: 3rem;">
+            <button id="pluto-btn" class="pluto-button">💌</button>
+            <p style="font-size: 0.75rem; opacity: 0.7; margin-top: 0.5rem;">
+                Something's twinkling...
+            </p>
+        </div>
+    </div>
+	
     <!-- Screen 3: Individual Poems -->
     
     <!-- Poem 1 -->
@@ -148,7 +157,86 @@
 
 </article>
 
+<!-- NEW: Add this OUTSIDE all articles, before the closing </div> of #main -->
+<!-- Pluto Confirmation Modal -->
+<div id="pluto-modal" class="pluto-modal hidden">
+    <div class="modal-content">
+        <div class="thought-bubble">
+            <p class="modal-text">Do you want to explore the Pluto(s) of my solar system?</p>
+            <div class="modal-buttons">
+                <button id="pluto-yes" class="button-nav">Yes, take me there</button>
+                <button id="pluto-no" class="button-nav">Maybe later</button>
+            </div>
+        </div>
+    </div>
+</div>
 
+<!-- NEW: Dwarf Stars Page (Full Screen Overlay) -->
+<div id="dwarf-stars" class="dwarf-stars-page hidden">
+    <button class="close-dwarf-stars">✕</button>
+    
+    <div class="dwarf-header">
+        <h2 class="section-title">Dwarf Stars</h2>
+        <p class="dwarf-subtitle">
+            Like Pluto, reclassified but never diminished—these fragments drift at the edge of my solar system. <br>
+            Click each glowing star to uncover the words that never made it into poems.
+        </p>
+    </div>
+    
+    <div class="starfield">
+        
+        <!-- Example Stars - Add Your Own Using This Template -->
+        <div class="star-wrapper" style="top: 20%; left: 15%;">
+            <div class="graphic-star size-s color-blue"></div>
+            <div class="star-tooltip">Quote 1</div>
+        </div>
+        
+        <div class="star-wrapper" style="top: 35%; left: 65%;">
+            <div class="graphic-star size-m color-yellow"></div>
+            <div class="star-tooltip">Quote 2</div>
+        </div>
+        
+        <div class="star-wrapper" style="top: 55%; left: 30%;">
+            <div class="graphic-star size-l color-red"></div>
+            <div class="star-tooltip">Quote 3</div>
+        </div>
+
+        <div class="star-wrapper" style="top: 25%; left: 80%;">
+            <div class="graphic-star size-s color-white pulsar"></div>
+            <div class="star-tooltip">Quote 4</div>
+        </div>
+
+        <div class="star-wrapper" style="top: 70%; left: 55%;">
+            <div class="graphic-star size-m color-blue"></div>
+            <div class="star-tooltip">Quote 5</div>
+        </div>
+
+        <div class="star-wrapper" style="top: 45%; left: 20%;">
+            <div class="graphic-star size-s color-yellow"></div>
+            <div class="star-tooltip">Quote 6</div>
+        </div>
+
+        <div class="star-wrapper" style="top: 80%; left: 75%;">
+            <div class="graphic-star size-m color-red"></div>
+            <div class="star-tooltip">Quote 7</div>
+        </div>
+
+        <div class="star-wrapper" style="top: 15%; left: 45%;">
+            <div class="graphic-star size-l color-white"></div>
+            <div class="star-tooltip">Quote 8</div>
+        </div>
+
+        <!-- Add more stars by copying the .star-wrapper block above -->
+        
+    </div>
+
+    <!-- Shooting Stars -->
+    <div class="shooting-star-container">
+        <div class="shooting-star"></div>
+        <div class="shooting-star"></div>
+        <div class="shooting-star"></div>
+    </div>
+</div>
 
 						<!-- Cosmic vault -->
 						    <article id="cosmic-vault" class="panel-main">
@@ -463,6 +551,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 	</body>
 </html>
+
 
 
 
