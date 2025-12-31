@@ -467,6 +467,75 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+/* ==========================================================================
+   PLUTO / DWARF STARS FUNCTIONALITY
+   ========================================================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const plutoBtn = document.getElementById('pluto-btn');
+    const plutoModal = document.getElementById('pluto-modal');
+    const plutoYes = document.getElementById('pluto-yes');
+    const plutoNo = document.getElementById('pluto-no');
+    const dwarfStarsPage = document.getElementById('dwarf-stars');
+    const closeDwarfStars = document.querySelector('.close-dwarf-stars');
+    
+    // Open modal when pluto button clicked
+    if (plutoBtn) {
+        plutoBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            plutoModal.classList.remove('hidden');
+        });
+    }
+    
+    // Close modal on "No" button
+    if (plutoNo) {
+        plutoNo.addEventListener('click', () => {
+            plutoModal.classList.add('hidden');
+        });
+    }
+    
+    // Close modal when clicking outside the thought bubble
+    if (plutoModal) {
+        plutoModal.addEventListener('click', (e) => {
+            if (e.target === plutoModal) {
+                plutoModal.classList.add('hidden');
+            }
+        });
+    }
+    
+    // Open Dwarf Stars page on "Yes"
+    if (plutoYes) {
+        plutoYes.addEventListener('click', () => {
+            plutoModal.classList.add('hidden');
+            dwarfStarsPage.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+    }
+    
+    // Close Dwarf Stars page
+    if (closeDwarfStars) {
+        closeDwarfStars.addEventListener('click', () => {
+            dwarfStarsPage.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore scrolling
+        });
+    }
+    
+    // ESC key to close modals
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            if (plutoModal && !plutoModal.classList.contains('hidden')) {
+                plutoModal.classList.add('hidden');
+            }
+            if (dwarfStarsPage && !dwarfStarsPage.classList.contains('hidden')) {
+                dwarfStarsPage.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+    });
+    
+});
+
 
 
 
