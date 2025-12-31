@@ -269,7 +269,7 @@
     <div class="dwarf-header">
         <h2 class="section-title">Dwarf Stars</h2>
         <p class="dwarf-subtitle">
-            Like Pluto, reclassified but never diminished—these fragments drift at the edge of my solar system. <br>
+            Like Pluto, reclassified but never diminished similarly these fragments drift at the edge of my solar system. <br>
             Click each glowing star to uncover the words that never made it into poems.
         </p>
     </div>
@@ -399,8 +399,55 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
+		<!-- Custom Logic for Pluto & Stars -->
+<script>
+    (function($) {
+        // 1. PLUTO BUTTON (Open Modal)
+        $('#pluto-btn').on('click', function(e) {
+            e.stopPropagation(); // 🛑 STOP the "Back to Main Page" glitch
+            $('#pluto-modal').removeClass('hidden');
+        });
+
+        // 2. MODAL OPTIONS
+        // "Yes" -> Open Dwarf Stars
+        $('#pluto-yes').on('click', function(e) {
+            e.stopPropagation();
+            $('#pluto-modal').addClass('hidden'); // Close modal
+            $('#dwarf-stars').removeClass('hidden'); // Open Stars
+        });
+
+        // "No" -> Close Modal
+        $('#pluto-no').on('click', function(e) {
+            e.stopPropagation();
+            $('#pluto-modal').addClass('hidden');
+        });
+
+        // 3. CLOSE DWARF STARS
+        $('.close-dwarf-stars').on('click', function(e) {
+            e.stopPropagation();
+            $('#dwarf-stars').addClass('hidden');
+        });
+
+        // 4. PREVENT "BACK TO MAIN" WHEN CLICKING INSIDE MODALS
+        // If you click inside the modal box or the starfield, don't close the article
+        $('.modal-content, .dwarf-stars-page').on('click', function(e) {
+            e.stopPropagation();
+        });
+
+        // 5. STAR CLICK (Mobile Support)
+        // On phones, tapping a star should just show the tooltip (handled by CSS) 
+        // but we must stop it from closing the page.
+        $('.star-wrapper').on('click', function(e) {
+            e.stopPropagation(); 
+        });
+
+    })(jQuery);
+</script>
+
+		
 	</body>
 </html>
+
 
 
 
