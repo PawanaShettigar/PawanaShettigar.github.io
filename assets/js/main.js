@@ -533,8 +533,102 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
-    
+       // ==================================================
+    // CUSTOM: Pluto & Dwarf Stars + Poem Navigation
+    // ==================================================
+
+    var $plutoModal = $('#pluto-modal'),
+        $dwarfStars = $('#dwarf-stars');
+
+    // 1. Open Pluto Modal (Stop propagation to prevent article closing)
+    $('#pluto-btn').on('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $plutoModal.removeClass('hidden').css('display', 'flex');
+    });
+
+    // 2. Modal "Yes" -> Open Dwarf Stars
+    $('#pluto-yes').on('click', function(e) {
+        e.stopPropagation();
+        $plutoModal.addClass('hidden').css('display', 'none');
+        $dwarfStars.removeClass('hidden').css('display', 'block');
+    });
+
+    // 3. Modal "No" -> Close Modal
+    $('#pluto-no').on('click', function(e) {
+        e.stopPropagation();
+        $plutoModal.addClass('hidden').css('display', 'none');
+    });
+
+    // 4. Close Dwarf Stars Page
+    $('.close-dwarf-stars').on('click', function(e) {
+        e.stopPropagation();
+        $dwarfStars.addClass('hidden').fadeOut(300);
+    });
+
+    // 5. Prevent clicks inside modals/stars from closing the main article
+    $('.modal-content, .dwarf-header, .starfield').on('click', function(e) {
+        e.stopPropagation();
+    });
+
+    // 6. Handle Star Clicks (Prevent bubbling)
+    $('.star-wrapper').on('click', function(e) {
+        e.stopPropagation();
+    });
+
+    // 7. Poem Navigation: Handle "Next", "Back", and Title buttons
+    $('.button-nav, .text-link').on('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        
+        var targetId = $(this).data('target');
+        var $currentSection = $(this).closest('.poem-welcome, .poem-list, .poem');
+        var $targetSection = $('#' + targetId);
+
+        // Hide current, Show target with fade
+        if($currentSection.length && $targetSection.length) {
+            $currentSection.removeClass('active').addClass('hidden');
+            $targetSection.removeClass('hidden').addClass('active');
+        }
+    });
+
+    // 8. RESET POEM SECTION when article closes or background clicked
+    $('#main').on('click', '.close', function(e) {
+        var $article = $(this).closest('article');
+        
+        // If closing the Poem article, reset to welcome screen
+        if ($article.attr('id') === 'poem') {
+            setTimeout(function() {
+                $('#poem-list, .poem').removeClass('active').addClass('hidden');
+                $('#poem-welcome').removeClass('hidden').addClass('active');
+            }, 350); // Wait for close animation
+        }
+    });
+
+    // Reset when clicking outside article (background)
+    $('#main').on('click', function(e) {
+        if ($(e.target).is('#main')) {
+            setTimeout(function() {
+                $('#poem-list, .poem').removeClass('active').addClass('hidden');
+                $('#poem-welcome').removeClass('hidden').addClass('active');
+            }, 350);
+        }
+    });
+
+    // 9. ESC Key Safety Net (Close overlays)
+    $(document).on('keydown', function(e) {
+        if (e.key === "Escape") {
+            if (!$dwarfStars.hasClass('hidden')) {
+                $dwarfStars.addClass('hidden');
+            }
+            if (!$plutoModal.hasClass('hidden')) {
+                $plutoModal.addClass('hidden');
+            }
+        }
+    });
+ 
 });
+
 
 
 
