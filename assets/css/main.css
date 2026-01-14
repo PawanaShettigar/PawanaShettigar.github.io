@@ -2642,7 +2642,7 @@ textarea:focus {
 }
 
 #poem-1 strong {
-    color: #ff3b9d;
+    color: #ff0000;
     font-weight: 600;
 }
 
@@ -2657,6 +2657,7 @@ textarea:focus {
         font-size: 1rem;
     }
 }
+
 
 
 
