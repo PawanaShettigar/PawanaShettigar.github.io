@@ -226,20 +226,77 @@
 	
     <!-- Screen 3: Individual Poems -->
     
-    <!-- Poem 1 -->
-    <div id="poem-1" class="poem hidden">
-        <h3 class="major">Thought I finally seized the edge</h3>
-        <p class="intro">This poem does not have any space metaphors, but it being one of my first work made me add it here in this section</p>
-        <p>
-            [poem verse 1]<br>
-            [poem verse 2]
-        </p>
-        <div class="poem-nav-row">
-            <!-- CHANGED: <a> become <button> with data-target -->
-            <button class="back button-nav" data-target="poem-list">&larr; Back to List</button>
-            <button class="next-poem button-nav" data-target="poem-2">Next Poem &rarr;</button>
+   <!-- Poem 1: Though I finally seized the edge -->
+<div id="poem-1" class="poem hidden">
+    <h2 class="section-title glitch-title">Though I finally seized the edge</h2>
+    
+    <div class="poem-prison-break">
+        <!-- Prison Bars + Glitch Cage -->
+        <div class="prison-cage">
+            <div class="bars vertical"></div>
+            <div class="bars horizontal"></div>
+            <div class="rusty-locket"></div>
+            <div class="biometric-glow"></div>
+        </div>
+        
+        <div class="poem-content">
+            <p class="verse-line cage-paradox">
+                In a <strong class="glitch-text">cage</strong>, with key in the pocket wearing a pant with no <em>*_pockets_*</em>
+            </p>
+            
+            <p class="verse-line ownership">
+                They own the keys, they own the cage, they sit on their thrones<br>
+                with their rusty <em>lockets</em>
+            </p>
+            
+            <div class="wicked-smile">
+                <div class="smile-crack"></div>
+                <p class="verse-line torment">
+                    I can sense their <span class="witty-smile">witty smile</span>;<br>
+                    as I shed the <strong>tears of blood</strong>, claw through their bluest flames for the <em>*_key_*</em>
+                </p>
+            </div>
+            
+            <p class="verse-line despair">
+                With my hopes dying in their cold <span class="cold-decree">*_decree_*</span>
+            </p>
+            
+            <div class="false-mercy">
+                <div class="sympathetic-eyes"></div>
+                <p class="verse-line false-gift">
+                    They gazed at me with their sympathetic <em>eyes</em><br>
+                    They gave the key as a frozen <span class="frozen-prize">prize</span>
+                </p>
+            </div>
+            
+            <p class="verse-line privilege">
+                Ohh! Privilege of their <strong class="sanctimonious">sanctimonious greed</strong>
+            </p>
+            
+            <div class="heart-warning">
+                <div class="heartbeat-line"></div>
+                <p class="verse-line instinct">
+                    My heart whispered "<em>That's a trick</em>"
+                </p>
+            </div>
+            
+            <div class="biometric-twist">
+                <div class="lock-scan-animation"></div>
+                <p class="verse-line revelation">
+                    I crept towards the lock with the freedom in my hands<br>
+                    only to realize the lock was my <strong class="biometric-lock">biometric</strong>
+                </p>
+            </div>
+        </div>
+        
+        <!-- Navigation Buttons -->
+        <div class="poem-nav-buttons">
+            <button class="button-nav text-link" data-target="poem-list">← Back to Poems</button>
+            <button class="button-nav pink-btn glitch-btn" onclick="triggerGlitchEffect()">🔓 Trigger Glitch</button>
         </div>
     </div>
+</div>
+
 
     <!-- Poem 2 -->
     <div id="poem-2" class="poem hidden">
@@ -472,6 +529,7 @@
 		
 	</body>
 </html>
+
 
 
 
