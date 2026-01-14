@@ -2611,6 +2611,53 @@ textarea:focus {
 }
 
 
+/* SIMPLE POEM 1 - Clean & Minimal */
+#poem-1 {
+    background: rgba(27, 31, 34, 0.97);
+    padding: 2rem;
+    text-align: center;
+}
+
+#poem-1 .simple-poem-content {
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    line-height: 1.8;
+}
+
+#poem-1 .verse-stanza {
+    margin-bottom: 1.5rem;
+    opacity: 0.95;
+}
+
+#poem-1 .verse-stanza p {
+    font-size: 1.15rem;
+    margin-bottom: 0.8rem;
+    font-weight: 300;
+}
+
+#poem-1 .climax {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 59, 157, 0.3);
+}
+
+#poem-1 strong {
+    color: #ff3b9d;
+    font-weight: 600;
+}
+
+#poem-1 em {
+    color: #ff85c2;
+    font-style: italic;
+}
+
+/* Mobile */
+@media screen and (max-width: 736px) {
+    #poem-1 .verse-stanza p {
+        font-size: 1rem;
+    }
+}
+
 
 
 
