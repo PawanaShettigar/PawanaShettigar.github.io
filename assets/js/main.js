@@ -503,6 +503,12 @@
 })(jQuery);  
 
 
+function triggerGlitchEffect() {
+    const poem = document.getElementById('poem-7');
+    poem.classList.add('glitched');
+    setTimeout(() => poem.classList.remove('glitched'), 500);
+}
+
 
 
 
