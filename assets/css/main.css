@@ -2621,11 +2621,11 @@ textarea:focus {
 #poem-1 .simple-poem-content {
     max-width: 700px;
     margin: 0 auto 2rem;
-    line-height: 1.4;
+    line-height: 1.3;
 }
 
 #poem-1 .verse-stanza {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.8rem;
     opacity: 0.95;
 }
 
@@ -2647,7 +2647,7 @@ textarea:focus {
 }
 
 #poem-1 em {
-    color: #ff85c2;
+    color: #ff0000;
     font-style: italic;
 }
 
@@ -2657,6 +2657,7 @@ textarea:focus {
         font-size: 1rem;
     }
 }
+
 
 
 
