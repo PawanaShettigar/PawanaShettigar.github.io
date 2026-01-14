@@ -2658,6 +2658,125 @@ textarea:focus {
     }
 }
 
+/* ============================================
+   PAWANA'S SIMPLE POETRY COLLECTION
+   Poems 1-4 - Clean, Minimal, Perfect Spacing
+   ============================================ */
+
+/* BASE STYLES FOR ALL POEMS */
+#poem-1, #poem-2, #poem-3, #poem-4 {
+    background: rgba(27, 31, 34, 0.97);
+    padding: 2rem;
+    text-align: center;
+}
+
+#poem-1 h2, #poem-2 h2, #poem-3 h2, #poem-4 h2 {
+    font-size: 1.8rem !important;
+    margin-bottom: 2rem;
+}
+
+/* PERFECT POETRY SPACING (ALL POEMS) */
+#poem-1 .simple-poem-content,
+#poem-2 .simple-poem-content,
+#poem-3 .simple-poem-content,
+#poem-4 .simple-poem-content {
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
+#poem-1 .verse-stanza,
+#poem-2 .verse-stanza,
+#poem-3 .verse-stanza,
+#poem-4 .verse-stanza {
+    margin-bottom: 2rem;    /* SPACE BETWEEN STANZAS */
+}
+
+#poem-1 .verse-stanza p,
+#poem-2 .verse-stanza p,
+#poem-3 .verse-stanza p,
+#poem-4 .verse-stanza p {
+    font-size: 1.15rem;
+    margin-bottom: 0.3rem;  /* TIGHT LINES WITHIN STANZA */
+    line-height: 1.3;
+    font-weight: 300;
+}
+
+/* LAST STANZA (before nav buttons) */
+#poem-1 .verse-stanza:last-child,
+#poem-2 .verse-stanza:last-child,
+#poem-3 .verse-stanza:last-child,
+#poem-4 .verse-stanza:last-child {
+    margin-bottom: 1rem;
+}
+
+/* CLIMAX STANZA (special formatting) */
+#poem-1 .climax,
+#poem-2 .climax,
+#poem-3 .climax,
+#poem-4 .climax {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* BOLD & ITALIC - SAME COLOR AS NORMAL TEXT */
+#poem-1 strong, #poem-2 strong, #poem-3 strong, #poem-4 strong,
+#poem-1 em, #poem-2 em, #poem-3 em, #poem-4 em {
+    color: inherit;         /* SAME WHITE COLOR */
+    font-weight: 600;       /* Bold */
+}
+
+#poem-1 em, #poem-2 em, #poem-3 em, #poem-4 em {
+    font-style: italic;
+}
+
+/* NAVIGATION ROW (ALL POEMS) */
+#poem-1 .poem-nav-row,
+#poem-2 .poem-nav-row,
+#poem-3 .poem-nav-row,
+#poem-4 .poem-nav-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+}
+
+/* MOBILE RESPONSIVE */
+@media screen and (max-width: 736px) {
+    #poem-1, #poem-2, #poem-3, #poem-4 {
+        padding: 1.5rem;
+    }
+    
+    #poem-1 .verse-stanza p,
+    #poem-2 .verse-stanza p,
+    #poem-3 .verse-stanza p,
+    #poem-4 .verse-stanza p {
+        font-size: 1rem;
+    }
+    
+    #poem-1 .poem-nav-row,
+    #poem-2 .poem-nav-row,
+    #poem-3 .poem-nav-row,
+    #poem-4 .poem-nav-row {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* FIX FOR YOUR EXISTING BUTTON CLASSES */
+#poem-1 .back, #poem-2 .back, #poem-3 .back, #poem-4 .back {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#poem-1 .next-poem, #poem-2 .next-poem, #poem-3 .next-poem, #poem-4 .next-poem {
+    background: linear-gradient(45deg, #ff3b9d, #ff85c2);
+    color: #ffffff;
+    border: none;
+}
+
 
 
 
