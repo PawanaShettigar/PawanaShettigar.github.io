@@ -500,7 +500,44 @@
         }
     });
 
+	/* --- IMPROVED POEM NAVIGATION --- */
+$(document).ready(function() {
+    
+    // 1. CLICKING A STAR CARD (To see the poem)
+    $('.star-card').on('click', function(e) {
+        var targetId = $(this).attr('data-target'); // gets 'poem-1'
+        
+        $('#poem-list').fadeOut(200, function() {
+            $(this).addClass('hidden').removeClass('active');
+            $('#' + targetId).fadeIn(300).removeClass('hidden').addClass('active');
+        });
+    });
+
+    // 2. CLICKING BACK TO ARCHIVE (To see the Grid again)
+    $('.back.button-nav').on('click', function(e) {
+        var targetId = $(this).attr('data-target'); // gets 'poem-list'
+        var $currentPoem = $(this).closest('.poem');
+
+        $currentPoem.fadeOut(200, function() {
+            $currentPoem.addClass('hidden').removeClass('active');
+            $('#' + targetId).fadeIn(300).removeClass('hidden').addClass('active');
+        });
+    });
+
+    // 3. NEXT POEM BUTTON
+    $('.next-poem').on('click', function(e) {
+        var targetId = $(this).attr('data-target');
+        var $currentPoem = $(this).closest('.poem');
+
+        $currentPoem.fadeOut(200, function() {
+            $currentPoem.addClass('hidden').removeClass('active');
+            $('#' + targetId).fadeIn(300).removeClass('hidden').addClass('active');
+        });
+    });
+});
+	
 })(jQuery);  
+
 
 
 
