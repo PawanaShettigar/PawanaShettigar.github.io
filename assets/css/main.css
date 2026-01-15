@@ -2913,6 +2913,13 @@ textarea:focus {
 }
 
 
+.poem-nav-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 3rem;
+    flex-wrap: wrap; /* Prevents buttons from overlapping on small screens */
+}
 
 
 
