@@ -1,32 +1,6 @@
 @import url(fontawesome-all.min.css);+
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600");
-/* --- COSMIC BACKGROUND RESTORATION --- */
-#bg {
-    background-image: url("images/bg.jpg"); /* Make sure this path is correct! */
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    z-index: -1;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 1 !important; /* Forces it to be visible */
-}
 
-/* Adds a dark overlay so text remains readable over the stars */
-#bg:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-}
 /*
 	Dimension by HTML5 UP
 	html5up.net | @ajlkn
@@ -3165,4 +3139,5 @@ button,
     color: #ffffff;
     text-transform: none; /* Keeps your original writing */
 }
+
 
