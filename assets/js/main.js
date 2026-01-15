@@ -500,67 +500,36 @@
         }
     });
 
-	/* --- IMPROVED POEM NAVIGATION --- */
 $(document).ready(function() {
-    
-    // 1. CLICKING A STAR CARD (To see the poem)
-    $('.star-card').on('click', function(e) {
-        var targetId = $(this).attr('data-target'); // gets 'poem-1'
-        
-        $('#poem-list').fadeOut(200, function() {
-            $(this).addClass('hidden').removeClass('active');
-            $('#' + targetId).fadeIn(300).removeClass('hidden').addClass('active');
-        });
-    });
-
-    // 2. CLICKING BACK TO ARCHIVE (To see the Grid again)
-    $('.back.button-nav').on('click', function(e) {
-        var targetId = $(this).attr('data-target'); // gets 'poem-list'
-        var $currentPoem = $(this).closest('.poem');
-
-        $currentPoem.fadeOut(200, function() {
-            $currentPoem.addClass('hidden').removeClass('active');
-            $('#' + targetId).fadeIn(300).removeClass('hidden').addClass('active');
-        });
-    });
-
-    // 3. NEXT POEM BUTTON
-    $('.next-poem').on('click', function(e) {
-        var targetId = $(this).attr('data-target');
-        var $currentPoem = $(this).closest('.poem');
-
-        $currentPoem.fadeOut(200, function() {
-            $currentPoem.addClass('hidden').removeClass('active');
-            $('#' + targetId).fadeIn(300).removeClass('hidden').addClass('active');
-        });
-    });
-});
-$(document).ready(function() {
-    // 1. Enter Poem from Card
+    // 1. Enter Poem from Card (Grid -> Poem)
     $('.star-card').on('click', function() {
         var target = $(this).attr('data-target');
         
-        // Hide the list immediately so it doesn't stay at the top
+        // FADE OUT the list first
         $('#poem-list').fadeOut(200, function() {
             $(this).addClass('hidden').hide(); 
             
-            // Show the poem and make sure it is at the top of the page
+            // NOW show the poem
             $('#' + target).fadeIn(300).removeClass('hidden').show();
             window.scrollTo(0, 0); 
         });
     });
 
-    // 2. Back to Archive
+    // 2. Back to Archive (Poem -> Grid) - THIS FIXES THE GLITCH
     $('.back.button-nav').on('click', function() {
         var $currentPoem = $(this).closest('.poem');
         
+        // STEP 1: Fade out the poem completely
         $currentPoem.fadeOut(200, function() {
+            // STEP 2: Hide the poem element from the layout
             $(this).addClass('hidden').hide();
+            
+            // STEP 3: Now that the poem is gone, fade the Archive in
             $('#poem-list').fadeIn(300).removeClass('hidden').show();
         });
     });
 
-    // 3. Next Poem
+    // 3. Next Poem (Poem -> Poem)
     $('.next-poem').on('click', function() {
         var target = $(this).attr('data-target');
         var $currentPoem = $(this).closest('.poem');
@@ -571,8 +540,9 @@ $(document).ready(function() {
             window.scrollTo(0, 0);
         });
     });
-});
+});	
 })(jQuery);  
+
 
 
 
