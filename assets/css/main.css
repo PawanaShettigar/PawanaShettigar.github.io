@@ -3144,5 +3144,38 @@ button,
     text-transform: none; /* Keeps your original writing */
 }
 
+/* --- PREVENT OVERLAP --- */
+.hidden {
+    display: none !important;
+}
+
+/* --- ROCKET ESCAPE ANIMATION --- */
+.anim-escape {
+    animation: rocket-escape 2.5s ease-in infinite;
+}
+
+@keyframes rocket-escape {
+    0% {
+        transform: translate(-10px, 10px) rotate(0deg);
+        opacity: 0;
+    }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% {
+        transform: translate(20px, -30px) rotate(0deg);
+        opacity: 0;
+    }
+}
+
+
+
+/* --- BUTTON TEXT CENTERING & WHITE COLOR --- */
+.button-nav, .pink-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #ffffff !important; /* Text is now white */
+    line-height: 1 !important;
+}
 
 
