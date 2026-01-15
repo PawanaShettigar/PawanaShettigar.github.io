@@ -2921,6 +2921,65 @@ textarea:focus {
     flex-wrap: wrap; /* Prevents buttons from overlapping on small screens */
 }
 
+/* --- UNIVERSAL BUTTON CENTERING FIX --- */
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button,
+.button,
+.pink-btn {
+    display: inline-flex !important; /* Use flex instead of block */
+    align-items: center !important;  /* Vertical center */
+    justify-content: center !important; /* Horizontal center */
+    height: 3rem;                   /* Fixed height */
+    line-height: 1 !important;      /* Reset line-height so it doesn't push text down */
+    padding: 0 1.5rem !important;   /* Only horizontal padding */
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Custom Pink Button Styling */
+.pink-btn {
+    background-color: transparent;
+    border: 1px solid #ff3b9d;
+    color: #ff3b9d !important;
+}
+
+.pink-btn:hover {
+    background-color: rgba(255, 59, 157, 0.1);
+    box-shadow: 0 0 15px rgba(255, 59, 157, 0.3);
+}
+
+/* --- STAR MAP GRID RECTIFICATION --- */
+.star-map-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.star-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem 1rem;
+    text-align: center;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.star-card:hover {
+    border-color: #ff3b9d;
+    transform: translateY(-5px);
+}
 
 
 
