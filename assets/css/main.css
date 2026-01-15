@@ -3060,6 +3060,72 @@ button,
     transform: rotate(-20deg); /* Tilts the planet ring for a better look */
 }
 
+/* --- 1. THE TWINKLING ENVELOPE (No Box) --- */
+.pluto-twinkle {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    font-size: 2.5rem;
+    cursor: pointer;
+    outline: none;
+    animation: twinkle-effect 3s ease-in-out infinite;
+}
+
+@keyframes twinkle-effect {
+    0%, 100% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 0px #fff); }
+    50% { opacity: 0.6; transform: scale(1.1); filter: drop-shadow(0 0 15px #ff3b9d); }
+}
+
+/* --- 2. THE 4 POEM ANIMATIONS --- */
+
+/* Poem 1: Falling Meteor */
+.anim-meteor {
+    animation: meteor-fall 2.5s linear infinite;
+}
+@keyframes meteor-fall {
+    0% { transform: translate(10px, -10px); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translate(-10px, 10px); opacity: 0; }
+}
+
+/* Poem 2: Rotating Galaxy */
+.anim-galaxy {
+    animation: galaxy-spin 15s linear infinite;
+}
+@keyframes galaxy-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Poem 3: Jupiter's Protective Pulse (The Shield) */
+.anim-jupiter {
+    animation: jupiter-protect 2s ease-in-out infinite;
+}
+@keyframes jupiter-protect {
+    0%, 100% { transform: scale(1); opacity: 1; color: #ff3b9d; }
+    50% { transform: scale(1.2); opacity: 0.8; color: #ffffff; }
+}
+
+/* Poem 4: Rocket Thrust (Escape) */
+.anim-escape {
+    animation: escape-shake 0.5s ease-in-out infinite;
+}
+@keyframes escape-shake {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px) translateX(1px); }
+}
 
 
+.card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px; /* Fixed height so animations don't move the text */
+    font-size: 2.5rem;
+    color: #ff3b9d;
+    margin-bottom: 1rem;
+}
 
+.star-card {
+    overflow: hidden; /* Keeps the meteor from flying out of the box */
+}
