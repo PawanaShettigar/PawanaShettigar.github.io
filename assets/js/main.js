@@ -502,49 +502,46 @@
 
 $(document).ready(function() {
     
-    // FUNCTION TO RESET VIEW (Cleans up the overlap)
-    function resetPoemView() {
-        $('#poem-list').hide().addClass('hidden');
-        $('.poem').hide().addClass('hidden');
+    // Function to hide everything before showing the next thing
+    function cleanShip() {
+        $('.poem, .poem-list, .poem-welcome').hide().addClass('hidden').removeClass('active');
     }
 
     // 1. Enter Poem from Card
     $('.star-card').on('click', function() {
         var target = $(this).attr('data-target');
-        
         $('#poem-list').fadeOut(200, function() {
-            resetPoemView(); // Hide everything first
-            $('#' + target).fadeIn(300).removeClass('hidden').show();
+            cleanShip();
+            $('#' + target).fadeIn(300).removeClass('hidden').addClass('active');
             window.scrollTo(0, 0); 
         });
     });
 
-    // 2. Back to Archive (CRITICAL FIX)
-    $('.back.button-nav').on('click', function(e) {
-        e.preventDefault(); // Stops the theme from jumping
-        var $currentPoem = $(this).closest('.poem');
-        
-        $currentPoem.fadeOut(200, function() {
-            resetPoemView(); // Kill the poem view completely
-            $('#poem-list').fadeIn(300).removeClass('hidden').show();
-            window.scrollTo(0, 0);
+    // 2. BACK TO ARCHIVE (Only for buttons that specifically mean Archive)
+    $('.back-to-archive').on('click', function(e) {
+        e.preventDefault();
+        var $current = $(this).closest('.poem');
+        $current.fadeOut(200, function() {
+            cleanShip();
+            $('#poem-list').fadeIn(300).removeClass('hidden').addClass('active');
         });
     });
 
-    // 3. Next Poem
-    $('.next-poem').on('click', function(e) {
+    // 3. PREVIOUS & NEXT POEM (For moving between poems)
+    $('.next-poem, .prev-poem').on('click', function(e) {
         e.preventDefault();
         var target = $(this).attr('data-target');
-        var $currentPoem = $(this).closest('.poem');
+        var $current = $(this).closest('.poem');
 
-        $currentPoem.fadeOut(200, function() {
-            resetPoemView(); // Kill previous poem
-            $('#' + target).fadeIn(300).removeClass('hidden').show();
+        $current.fadeOut(200, function() {
+            cleanShip();
+            $('#' + target).fadeIn(300).removeClass('hidden').addClass('active');
             window.scrollTo(0, 0);
         });
     });
 });
 })(jQuery);  
+
 
 
 
