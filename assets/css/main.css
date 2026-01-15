@@ -3029,6 +3029,36 @@ button,
     }
 }
 
+/* --- REMOVE BOX FROM ENVELOPE EMOJI --- */
+.pluto-button-clean {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    font-size: 2.5rem; /* Makes the emoji larger and clearer */
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    outline: none;
+}
+
+.pluto-button-clean:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(255, 59, 157, 0.5)); /* Cosmic pink glow */
+}
+
+/* --- ICON VIBE ADJUSTMENTS --- */
+.fa-bahai {
+    /* Rotating animation for the galaxy icon */
+    animation: slow-spin 10s linear infinite;
+}
+
+@keyframes slow-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.fa-ring {
+    transform: rotate(-20deg); /* Tilts the planet ring for a better look */
+}
 
 
 
