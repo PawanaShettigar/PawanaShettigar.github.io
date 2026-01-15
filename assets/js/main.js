@@ -535,8 +535,50 @@ $(document).ready(function() {
         });
     });
 });
-	
+$(document).ready(function() {
+    
+    // 1. Typing Effect Logic
+    function typeTitle($element) {
+        var text = $element.attr('data-title') || $element.text();
+        if (!$element.attr('data-title')) $element.attr('data-title', text);
+        
+        $element.text('');
+        var i = 0;
+        var timer = setInterval(function() {
+            if (i < text.length) {
+                $element.append(text.charAt(i));
+                i++;
+            } else {
+                clearInterval(timer);
+            }
+        }, 60);
+    }
+
+    // 2. Click Star Card (Go to Poem)
+    $('.star-card').on('click', function() {
+        var target = $(this).attr('data-target');
+        
+        $('#poem-list').fadeOut(300, function() {
+            $(this).addClass('hidden');
+            $('#' + target).fadeIn(400).removeClass('hidden');
+            
+            // Trigger typing on the title of the new poem
+            typeTitle($('#' + target).find('.section-title'));
+        });
+    });
+
+    // 3. Back Button Logic
+    $('.back.button-nav').on('click', function() {
+        var $currentPoem = $(this).closest('.poem');
+        
+        $currentPoem.fadeOut(300, function() {
+            $currentPoem.addClass('hidden');
+            $('#poem-list').fadeIn(400).removeClass('hidden');
+        });
+    });
+});	
 })(jQuery);  
+
 
 
 
