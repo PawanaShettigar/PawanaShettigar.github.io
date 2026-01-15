@@ -2981,7 +2981,53 @@ button,
     transform: translateY(-5px);
 }
 
+/* --- FIX: WHITE BUTTON TEXT & PERFECT CENTERING --- */
+input[type="submit"], 
+input[type="reset"], 
+input[type="button"], 
+button, 
+.button, 
+.pink-btn, 
+.button-nav {
+    display: inline-flex !important;
+    align-items: center !important;     /* Force vertical center */
+    justify-content: center !important;  /* Force horizontal center */
+    color: #ffffff !important;           /* FORCE TEXT WHITE */
+    height: 3.5rem; 
+    line-height: 1 !important;           /* Remove old alignment method */
+    padding: 0 2rem !important;
+    text-decoration: none;
+    border: 1px solid #ff3b9d;           /* Keeps your pink border */
+    background: transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
 
+/* Hover effect to make it glow when touched */
+.button-nav:hover, .pink-btn:hover {
+    background-color: rgba(255, 59, 157, 0.1);
+    box-shadow: 0 0 15px rgba(255, 59, 157, 0.4);
+    border-color: #ff3b9d;
+    color: #ffffff !important;
+}
+
+/* --- NAVIGATION ROW SYMMETRY --- */
+.poem-nav-row {
+    display: flex;
+    justify-content: center; /* Centers the buttons on the page */
+    gap: 1.5rem;             /* Adds space between the buttons */
+    margin-top: 3rem;
+    width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+    .poem-nav-row {
+        flex-direction: column; /* Stacks buttons on small phones */
+        align-items: center;
+    }
+}
 
 
 
