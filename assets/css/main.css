@@ -3178,4 +3178,20 @@ button,
     line-height: 1 !important;
 }
 
+/* Ensure the Archive Grid stays behind or disappears when a poem is active */
+#poem-list.hidden {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    height: 0;
+    overflow: hidden;
+}
+
+/* Give poems a clean, high-priority layer */
+.poem:not(.hidden) {
+    display: block !important;
+    position: relative;
+    z-index: 10;
+    background: transparent;
+}
 
