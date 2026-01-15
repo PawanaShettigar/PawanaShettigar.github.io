@@ -3106,28 +3106,32 @@ button,
     50% { transform: scale(1.2); opacity: 0.8; color: #ffffff; }
 }
 
-/* Poem 4: Rocket Thrust (Escape) */
+/* Poem 4: Rocket Escape (Takeoff Loop) */
 .anim-escape {
-    animation: escape-shake 0.5s ease-in-out infinite;
-}
-@keyframes escape-shake {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-3px) translateX(1px); }
+    animation: rocket-escape 2s ease-in infinite;
 }
 
-
-.card-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 60px; /* Fixed height so animations don't move the text */
-    font-size: 2.5rem;
-    color: #ff3b9d;
-    margin-bottom: 1rem;
+@keyframes rocket-escape {
+    0% {
+        transform: translate(-10px, 10px) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(15px, -25px) rotate(0deg);
+        opacity: 0;
+    }
 }
 
+/* Ensure the card doesn't show the rocket when it's "outside" the box */
 .star-card {
-    overflow: hidden; /* Keeps the meteor from flying out of the box */
+    overflow: hidden;
+    position: relative;
 }
 
 /* Ensure poem titles are centered and static */
@@ -3139,5 +3143,6 @@ button,
     color: #ffffff;
     text-transform: none; /* Keeps your original writing */
 }
+
 
 
