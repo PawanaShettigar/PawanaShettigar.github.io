@@ -3129,3 +3129,13 @@ button,
 .star-card {
     overflow: hidden; /* Keeps the meteor from flying out of the box */
 }
+
+/* Ensure poem titles are centered and static */
+.poem .section-title {
+    text-align: center;
+    width: 100%;
+    display: block;
+    margin-bottom: 2rem;
+    color: #ffffff;
+    text-transform: none; /* Keeps your original writing */
+}
