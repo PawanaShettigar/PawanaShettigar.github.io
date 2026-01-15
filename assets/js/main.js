@@ -424,12 +424,12 @@
         $plutoModal.addClass('hidden').css('display', 'none');
     });
 
-    // 4. Close Dwarf Stars Page
-    $('.close-dwarf-stars').on('click', function(e) {
-        e.stopPropagation();
-        $dwarfStars.addClass('hidden').fadeOut(300);
-    });
-
+    // 4. Close Dwarf Stars Page (Handles click on the button OR the 'x')
+    $(document).on('click', '.close-dwarf-stars', function(e) {
+		e.stopPropagation();
+		$('#dwarf-stars').addClass('hidden').fadeOut(300);
+	});
+	
     // 5. Prevent clicks inside modals/stars from closing article
     $('.modal-content, .dwarf-header, .starfield').on('click', function(e) {
         e.stopPropagation();
@@ -501,6 +501,7 @@
     });
 
 })(jQuery);  
+
 
 
 
