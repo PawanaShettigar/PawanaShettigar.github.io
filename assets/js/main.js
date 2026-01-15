@@ -536,46 +536,44 @@ $(document).ready(function() {
     });
 });
 $(document).ready(function() {
-	
-    // 1. Enter Poem from Star Card
+    // 1. Enter Poem from Card
     $('.star-card').on('click', function() {
         var target = $(this).attr('data-target');
+        
+        // Hide the list immediately so it doesn't stay at the top
         $('#poem-list').fadeOut(200, function() {
-            $(this).addClass('hidden');
-            $('#' + target).fadeIn(300).removeClass('hidden');
+            $(this).addClass('hidden').hide(); 
+            
+            // Show the poem and make sure it is at the top of the page
+            $('#' + target).fadeIn(300).removeClass('hidden').show();
+            window.scrollTo(0, 0); 
         });
     });
 
-    // 2. Back to Archive Button
+    // 2. Back to Archive
     $('.back.button-nav').on('click', function() {
         var $currentPoem = $(this).closest('.poem');
+        
         $currentPoem.fadeOut(200, function() {
-            $(this).addClass('hidden');
-            $('#poem-list').fadeIn(300).removeClass('hidden');
+            $(this).addClass('hidden').hide();
+            $('#poem-list').fadeIn(300).removeClass('hidden').show();
         });
     });
 
-    // 3. Next Poem Button
+    // 3. Next Poem
     $('.next-poem').on('click', function() {
         var target = $(this).attr('data-target');
         var $currentPoem = $(this).closest('.poem');
+
         $currentPoem.fadeOut(200, function() {
-            $(this).addClass('hidden');
-            $('#' + target).fadeIn(300).removeClass('hidden');
+            $(this).addClass('hidden').hide();
+            $('#' + target).fadeIn(300).removeClass('hidden').show();
+            window.scrollTo(0, 0);
         });
     });
-
-    // 4. Reset logic when closing the main article
-    $('.close').on('click', function() {
-        // When user clicks 'X', reset the poem section to show the list next time
-        setTimeout(function() {
-            $('.poem').addClass('hidden');
-            $('#poem-list').removeClass('hidden').show();
-        }, 500);
-    });
 });
-  
 })(jQuery);  
+
 
 
 
