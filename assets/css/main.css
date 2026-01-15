@@ -2852,6 +2852,65 @@ textarea:focus {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* --- STAR MAP GRID (Add to bottom of main.css) --- */
+.star-map-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.star-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 160px; /* Ensures all boxes are same height */
+}
+
+.star-card h3 {
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    margin: 1rem 0 0 0;
+    color: #ffffff;
+    font-weight: 400;
+    text-transform: none; /* Keeps your casing */
+    line-height: 1.4;
+}
+
+.card-icon {
+    font-size: 2rem;
+    color: #ff3b9d; /* Pink Theme Color */
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effects */
+.star-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 59, 157, 0.1);
+    border-color: #ff3b9d;
+    box-shadow: 0 0 20px rgba(255, 59, 157, 0.4);
+}
+
+.star-card:hover .card-icon {
+    transform: scale(1.2) rotate(10deg);
+    color: #ffffff;
+}
+
+/* Mobile Fix */
+@media screen and (max-width: 480px) {
+    .star-map-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
 
 
