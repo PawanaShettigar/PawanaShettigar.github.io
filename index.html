@@ -202,26 +202,40 @@
 
     <!-- Screen 2: List of Poems -->
     <div id="poem-list" class="poem-list hidden">
-        <h2 class="section-title">The Gravity of Cosmic Emotions</h2>
-        <p class="intro" style="text-align: center;">Select a frequency to tune into...</p>
-        <nav class="poem-nav">
-            <ul>
-                <!-- CHANGED: All <a> become <button class="text-link"> with data-target -->
-                <li><button class="text-link" data-target="poem-1">Thought I finally seized the edge</button></li>
-                <li><button class="text-link" data-target="poem-2">The Whispers of the Galaxies</button></li>
-                <li><button class="text-link" data-target="poem-3">Were you my Jupiter?</button></li>
-                <li><button class="text-link" data-target="poem-4">Critical to Escape</button></li>
-            </ul>
-        </nav>
+    <h2 class="section-title">The Gravity of Cosmic Emotions</h2>
+    <p class="intro" style="text-align: center; margin-bottom: 2rem;">Select a frequency to tune into...</p>
 
-     <!-- NEW: Pluto Button -->
-        <div style="text-align: center; margin-top: 3rem;">
-            <button id="pluto-btn" class="pluto-button">💌</button>
-            <p style="font-size: 0.75rem; opacity: 0.7; margin-top: 0.5rem;">
-                Something's twinkling... [PS:Click for Extras]
-            </p>
-		</div>
-	</div>
+    <div class="star-map-grid">
+        
+        <div class="star-card" data-target="poem-1">
+            <div class="card-icon"><i class="fas fa-meteor"></i></div>
+            <h3>Thought I finally seized the edge</h3>
+        </div>
+
+        <div class="star-card" data-target="poem-2">
+            <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
+            <h3>The Whispers of the Galaxies</h3>
+        </div>
+
+        <div class="star-card" data-target="poem-3">
+            <div class="card-icon"><i class="fas fa-sun"></i></div>
+            <h3>Were you my Jupiter?</h3>
+        </div>
+
+        <div class="star-card" data-target="poem-4">
+            <div class="card-icon"><i class="fas fa-shuttle-space"></i></div>
+            <h3>Critical to Escape</h3>
+        </div>
+
+    </div>
+
+    <div style="text-align: center; margin-top: 3rem;">
+        <button id="pluto-btn" class="pluto-button">💌</button>
+        <p style="font-size: 0.75rem; opacity: 0.7; margin-top: 0.5rem;">
+            Something's twinkling... [PS: Click for Extras]
+        </p>
+    </div>
+</div>
 	
     <!-- Screen 3: Individual Poems -->
     
@@ -566,6 +580,7 @@
 		
 	</body>
 </html>
+
 
 
 
