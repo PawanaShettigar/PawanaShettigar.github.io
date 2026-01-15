@@ -2777,8 +2777,80 @@ textarea:focus {
     border: none;
 }
 
+/* --- SYMMETRY UPGRADES --- */
 
+/* 1. Perfect Center for Poem Navigation */
+.poem-nav-row {
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center;     /* Vertically align */
+    gap: 1.5rem;             /* Consistent space between buttons */
+    margin-top: 3rem;
+    flex-wrap: wrap;         /* Wrap gracefully on mobile */
+}
 
+/* 2. Make buttons equal size for symmetry */
+.poem-nav-row .button-nav {
+    min-width: 180px;        /* Forces buttons to be same width */
+    text-align: center;
+}
+
+/* 3. Fix the "Technical Arsenal" Grid Alignment */
+.tech-arsenal {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.arsenal-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 59, 157, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.arsenal-item:hover {
+    transform: translateY(-5px);
+    border-color: #ff3b9d;
+}
+
+/* --- COSMIC UI POLISH --- */
+
+/* 1. Custom Scrollbar (Webkit browsers like Chrome/Safari) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1b1f22; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ff3b9d; 
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #e02465; 
+}
+
+/* 2. Text Selection Highlight */
+::selection {
+    background: #ff3b9d;
+    color: #ffffff;
+}
+
+/* 3. Glassmorphism cleanup for the main panel */
+#main article {
+    /* Ensure the background isn't too dark so the blur is visible */
+    background-color: rgba(27, 31, 34, 0.85); 
+    backdrop-filter: blur(15px); /* Stronger blur for premium feel */
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
 
 
