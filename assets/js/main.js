@@ -501,47 +501,51 @@
     });
 
 $(document).ready(function() {
-    // 1. Enter Poem from Card (Grid -> Poem)
+    
+    // FUNCTION TO RESET VIEW (Cleans up the overlap)
+    function resetPoemView() {
+        $('#poem-list').hide().addClass('hidden');
+        $('.poem').hide().addClass('hidden');
+    }
+
+    // 1. Enter Poem from Card
     $('.star-card').on('click', function() {
         var target = $(this).attr('data-target');
         
-        // FADE OUT the list first
         $('#poem-list').fadeOut(200, function() {
-            $(this).addClass('hidden').hide(); 
-            
-            // NOW show the poem
+            resetPoemView(); // Hide everything first
             $('#' + target).fadeIn(300).removeClass('hidden').show();
             window.scrollTo(0, 0); 
         });
     });
 
-    // 2. Back to Archive (Poem -> Grid) - THIS FIXES THE GLITCH
-    $('.back.button-nav').on('click', function() {
+    // 2. Back to Archive (CRITICAL FIX)
+    $('.back.button-nav').on('click', function(e) {
+        e.preventDefault(); // Stops the theme from jumping
         var $currentPoem = $(this).closest('.poem');
         
-        // STEP 1: Fade out the poem completely
         $currentPoem.fadeOut(200, function() {
-            // STEP 2: Hide the poem element from the layout
-            $(this).addClass('hidden').hide();
-            
-            // STEP 3: Now that the poem is gone, fade the Archive in
+            resetPoemView(); // Kill the poem view completely
             $('#poem-list').fadeIn(300).removeClass('hidden').show();
+            window.scrollTo(0, 0);
         });
     });
 
-    // 3. Next Poem (Poem -> Poem)
-    $('.next-poem').on('click', function() {
+    // 3. Next Poem
+    $('.next-poem').on('click', function(e) {
+        e.preventDefault();
         var target = $(this).attr('data-target');
         var $currentPoem = $(this).closest('.poem');
 
         $currentPoem.fadeOut(200, function() {
-            $(this).addClass('hidden').hide();
+            resetPoemView(); // Kill previous poem
             $('#' + target).fadeIn(300).removeClass('hidden').show();
             window.scrollTo(0, 0);
         });
     });
-});	
+});
 })(jQuery);  
+
 
 
 
