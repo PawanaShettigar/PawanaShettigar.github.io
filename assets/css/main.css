@@ -3414,29 +3414,55 @@ input:focus, textarea:focus {
 
 
 
-/* ELITE FIX FOR CLOSE BUTTON */
+/* =========================================
+   FIXED CLOSE BUTTON (THE "X")
+   ========================================= */
 #main article .close {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    text-indent: 0 !important; /* Forces the 'hidden' text back to center */
+    
+    /* 1. Hide the text "Close" without moving the lines */
+    color: transparent !important; 
+    overflow: hidden;
+    text-indent: 4rem; /* Pushes the text out of the box */
+    white-space: nowrap;
+
     width: 2.5rem !important;
     height: 2.5rem !important;
+    border-radius: 50% !important;
+    position: absolute !important;
     top: 0.5rem !important;
     right: 0.5rem !important;
-    border-radius: 50% !important;
-    overflow: hidden; /* Keeps everything inside the circle */
+    transition: all 0.3s ease;
 }
 
+/* Base style for both lines of the X */
 #main article .close:before,
 #main article .close:after {
-    position: absolute !important; /* Overlap them in the center */
-    margin: 0 !important;
-    top: 50% !important;
+    content: '' !important;
+    position: absolute !important;
+    width: 1.5rem !important; /* Length of the X lines */
+    height: 1px !important;    /* Thickness */
+    background: #ffffff !important;
     left: 50% !important;
+    top: 50% !important;
+    margin: 0 !important;
+    text-indent: 0 !important; /* Prevents lines from disappearing with text */
+}
+
+/* Line 1: Rotate 45 degrees */
+#main article .close:before {
     transform: translate(-50%, -50%) rotate(45deg) !important;
 }
 
+/* Line 2: Rotate -45 degrees (creating the X) */
 #main article .close:after {
     transform: translate(-50%, -50%) rotate(-45deg) !important;
+}
+
+/* Hover effect */
+#main article .close:hover {
+    background: rgba(255, 59, 157, 0.3) !important;
+    transform: rotate(90deg); /* Spirals the X when you hover */
 }
