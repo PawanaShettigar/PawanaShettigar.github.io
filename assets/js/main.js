@@ -578,26 +578,9 @@ $(document).ready(function() {
     });
 });
 
-// STARDUST CURSOR FOLLOWER
-$(document).ready(function() {
-    var $follower = $('<div id="stardust-follower"></div>').appendTo('body');
-    
-    $(window).on('mousemove', function(e) {
-        // The delay/smoothness is handled by CSS transitions
-        $follower.css({
-            left: e.clientX,
-            top: e.clientY
-        });
-    });
 
-    // Make it grow when hovering over clickable items
-    $('a, button, .star-card, .close').on('mouseenter', function() {
-        $follower.addClass('grow');
-    }).on('mouseleave', function() {
-        $follower.removeClass('grow');
-    });
-});	
 })(jQuery);  
+
 
 
 
