@@ -3460,27 +3460,6 @@ input:focus, textarea:focus {
     transform: rotate(90deg); /* Spirals the X when you hover */
 }
 
-/* STARDUST FOLLOWER STYLE */
-#stardust-follower {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background: rgba(255, 59, 157, 0.3); /* Theme pink */
-    border-radius: 50%;
-    pointer-events: none; /* Important: clicks pass through it */
-    transform: translate(-50%, -50%);
-    transition: width 0.3s, height 0.3s, background 0.3s, left 0.1s ease-out, top 0.1s ease-out;
-    z-index: 9999;
-    box-shadow: 0 0 15px rgba(255, 59, 157, 0.5);
-}
-
-#stardust-follower.grow {
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 59, 157, 0.1);
-    border: 1px solid rgba(255, 59, 157, 0.5);
-}
-
 h1, .section-title {
     background: linear-gradient(90deg, #ffffff, #ff3b9d);
     -webkit-background-clip: text;
@@ -3488,4 +3467,5 @@ h1, .section-title {
     font-weight: 900;
     display: inline-block;
 }
+
 
