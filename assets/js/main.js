@@ -555,7 +555,30 @@ $(document).ready(function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 });
+
+// Create a "Return to Stars" button dynamically
+$(document).ready(function() {
+    var $btn = $('<div id="backToTop"><i class="fas fa-chevron-up"></i></div>').appendTo('body');
+    
+    $btn.css({
+        'position': 'fixed', 'bottom': '20px', 'right': '20px',
+        'width': '50px', 'height': '50px', 'background': '#ff3b9d',
+        'color': '#fff', 'border-radius': '50%', 'display': 'none',
+        'align-items': 'center', 'justify-content': 'center',
+        'cursor': 'pointer', 'z-index': '2000', 'box-shadow': '0 0 15px rgba(255,59,157,0.5)'
+    });
+
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 300) { $btn.fadeIn().css('display', 'flex'); }
+        else { $btn.fadeOut(); }
+    });
+
+    $btn.on('click', function() {
+        $('html, body').animate({scrollTop: 0}, 800);
+    });
+});
 })(jQuery);  
+
 
 
 
