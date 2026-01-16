@@ -3349,3 +3349,65 @@ input:focus, textarea:focus {
     transform: rotate(90deg);
     background: rgba(255, 59, 157, 0.8); /* Pink on hover */
 }
+
+/* =========================================
+   TYPEWRITER EFFECT
+   ========================================= */
+.typewriter {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid #ff3b9d; /* The cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+        typing 3.5s steps(40, end),
+        blink-caret .75s step-end infinite;
+    max-width: fit-content;
+}
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #ff3b9d; }
+}
+
+/* Mobile fix: Disable typewriter on phones if text wraps */
+@media screen and (max-width: 736px) {
+    .typewriter {
+        white-space: normal;
+        border-right: none;
+        animation: none;
+    }
+}
+
+/* =========================================
+   CUSTOM TEXT SELECTION
+   ========================================= */
+::selection {
+    background: #ff3b9d; /* Pink background */
+    color: #ffffff;      /* White text */
+    text-shadow: 0 0 5px #fff;
+}
+::-moz-selection {
+    background: #ff3b9d;
+    color: #ffffff;
+}
+
+/* =========================================
+   CUSTOM TEXT SELECTION
+   ========================================= */
+::selection {
+    background: #ff3b9d; /* Pink background */
+    color: #ffffff;      /* White text */
+    text-shadow: 0 0 5px #fff;
+}
+::-moz-selection {
+    background: #ff3b9d;
+    color: #ffffff;
+}
