@@ -3411,3 +3411,47 @@ input:focus, textarea:focus {
     background: #ff3b9d;
     color: #ffffff;
 }
+
+#main article .close {
+    /* Existing position styles... */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    /* Force it to be a perfect circle */
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    border-radius: 50% !important;
+    
+    /* Remove any old centering hacks */
+    text-indent: 0 !important;
+    padding: 0 !important;
+}
+
+#main article .close:before {
+    /* Ensure the "X" lines inside don't have weird margins */
+    margin: 0 !important;
+    top: auto !important;
+    left: auto !important;
+}
+
+/* If it's the "Star Card" for Pluto in the list */
+.star-card[data-target="pluto"] {
+    aspect-ratio: 1 / 1 !important;
+    width: 100% !important;
+    max-width: 200px; /* Adjust this based on your preferred size */
+    object-fit: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* If the Pluto icon inside the card is the problem */
+.star-card[data-target="pluto"] .icon {
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    display: block;
+    margin: 0 auto;
+}
+
