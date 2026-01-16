@@ -500,47 +500,63 @@
         }
     });
 
+
 $(document).ready(function() {
     
-    // Function to hide everything before showing the next thing
-    function cleanShip() {
-        $('.poem, .poem-list, .poem-welcome').hide().addClass('hidden').removeClass('active');
+    // Smooth transition function
+    function switchSection($current, $next) {
+        // 1. Get the natural height of the NEXT section
+        // We clone it, make it invisible, check height, then destroy it.
+        var $clone = $next.clone().css({
+            'display': 'block', 
+            'visibility': 'hidden', 
+            'position': 'absolute', 
+            'width': $current.width()
+        }).appendTo($current.parent());
+        
+        var newHeight = $clone.outerHeight();
+        $clone.remove();
+
+        // 2. Fade out current
+        $current.fadeOut(300, function() {
+            $current.removeClass('active').addClass('hidden');
+            
+            // 3. Fade in next
+            $next.removeClass('hidden').css('display', 'none').fadeIn(400, function(){
+                 $next.addClass('active');
+            });
+        });
     }
 
     // 1. Enter Poem from Card
     $('.star-card').on('click', function() {
         var target = $(this).attr('data-target');
-        $('#poem-list').fadeOut(200, function() {
-            cleanShip();
-            $('#' + target).fadeIn(300).removeClass('hidden').addClass('active');
-            window.scrollTo(0, 0); 
-        });
+        var $current = $('#poem-list');
+        var $next = $('#' + target);
+        switchSection($current, $next);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // 2. BACK TO ARCHIVE (Only for buttons that specifically mean Archive)
+    // 2. BACK TO ARCHIVE
     $('.back-to-archive').on('click', function(e) {
         e.preventDefault();
         var $current = $(this).closest('.poem');
-        $current.fadeOut(200, function() {
-            cleanShip();
-            $('#poem-list').fadeIn(300).removeClass('hidden').addClass('active');
-        });
+        var $next = $('#poem-list');
+        switchSection($current, $next);
     });
 
-    // 3. PREVIOUS & NEXT POEM (For moving between poems)
+    // 3. PREVIOUS & NEXT POEM
     $('.next-poem, .prev-poem').on('click', function(e) {
         e.preventDefault();
         var target = $(this).attr('data-target');
         var $current = $(this).closest('.poem');
-
-        $current.fadeOut(200, function() {
-            cleanShip();
-            $('#' + target).fadeIn(300).removeClass('hidden').addClass('active');
-            window.scrollTo(0, 0);
-        });
+        var $next = $('#' + target);
+        switchSection($current, $next);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 });
 })(jQuery);  
+
 
 
 
