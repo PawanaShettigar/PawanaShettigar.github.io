@@ -3455,3 +3455,47 @@ input:focus, textarea:focus {
     margin: 0 auto;
 }
 
+/* Fix for the Close (X) Button alignment */
+#main article .close {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-indent: 0 !important; /* Removes the offset */
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    top: 0.5rem !important;
+    right: 0.5rem !important;
+}
+
+#main article .close:before,
+#main article .close:after {
+    /* Resets the positioning of the cross lines so they center within the flex container */
+    position: static !important;
+    margin: 0 !important;
+    display: block !important;
+}
+
+#main article .close:after {
+    /* This ensures the second line of the X overlaps the first exactly in the center */
+    position: absolute !important;
+}
+
+/* Force Pluto (and all star cards) to stay circular */
+.star-card {
+    aspect-ratio: 1 / 1 !important;
+    width: 100% !important;
+    max-width: 180px; /* Adjust this to your preferred size */
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem !important;
+}
+
+/* Ensure the text inside doesn't stretch the circle */
+.star-card h3 {
+    margin: 0;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
