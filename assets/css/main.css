@@ -3333,3 +3333,19 @@ input:focus, textarea:focus {
     box-shadow: 0 0 15px rgba(255, 59, 157, 0.2) !important;
     transform: scale(1.01);
 }
+
+#main article .close {
+    background: rgba(0,0,0,0.5); /* Dark circle background */
+    border-radius: 50%;
+    top: 1.5rem !important;
+    right: 1.5rem !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    transition: transform 0.3s ease, background 0.3s ease;
+    z-index: 100; /* Ensure it's above everything */
+}
+
+#main article .close:hover {
+    transform: rotate(90deg);
+    background: rgba(255, 59, 157, 0.8); /* Pink on hover */
+}
