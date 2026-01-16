@@ -3314,22 +3314,6 @@ h1, h2.section-title {
     border-radius: 4px;
 }
 
-body {
-    /* Standard clean arrow, removing the + */
-    cursor: default !important;
-}
-
-/* Ensure all interactive elements use the pointer (hand) */
-a, 
-button, 
-.star-card, 
-.close, 
-.back-to-archive, 
-.next-poem, 
-.prev-poem,
-input[type="submit"] {
-    cursor: pointer !important;
-}
 
 /* 6. Smooth Input Fields */
 input[type="text"], input[type="email"], textarea {
@@ -3498,9 +3482,10 @@ input:focus, textarea:focus {
 }
 
 h1, .section-title {
-    background: linear-gradient(90deg, #ffffff, #ff3b9d, #6c22bd);
+    background: linear-gradient(90deg, #ffffff, #ff3b9d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 900;
     display: inline-block;
 }
+
