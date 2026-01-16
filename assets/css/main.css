@@ -3263,3 +3263,73 @@ button,
     margin-top: 3rem;
     gap: 1rem;
 }
+
+/* =========================================
+   COSMIC POLISH UPGRADE (Add to bottom of CSS)
+   ========================================= */
+
+/* 1. Smoother Glassmorphism for Main Articles */
+#main article {
+    background: rgba(20, 23, 28, 0.85) !important; /* Darker, richer base */
+    backdrop-filter: blur(20px) !important;        /* Stronger blur */
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.5), 
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    border-radius: 16px !important;
+}
+
+/* 2. Glowing Text Headers */
+h1, h2.section-title {
+    text-shadow: 0 0 15px rgba(255, 59, 157, 0.5), 0 0 30px rgba(255, 59, 157, 0.2);
+    letter-spacing: 0.25rem !important;
+}
+
+/* 3. Holographic 3D Cards (Research & Poem Selection) */
+.mission-card, .star-card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.4s ease, 
+                border-color 0.4s ease !important;
+    background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%) !important;
+}
+
+.mission-card:hover, .star-card:hover {
+    transform: translateY(-10px) scale(1.02) !important;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(255, 59, 157, 0.3) !important;
+    border-color: #ff3b9d !important;
+}
+
+/* 4. Elegant Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0b0d10; 
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #ff3b9d, #6c22bd); 
+    border-radius: 4px;
+}
+
+/* 5. Custom "Star" Cursor (Optional but cool) */
+body {
+    cursor: crosshair; /* Gives a technical/telescope feel */
+}
+a, button, .star-card, .mission-card {
+    cursor: pointer;
+}
+
+/* 6. Smooth Input Fields */
+input[type="text"], input[type="email"], textarea {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.3s ease;
+}
+input:focus, textarea:focus {
+    border-color: #ff3b9d !important;
+    box-shadow: 0 0 15px rgba(255, 59, 157, 0.2) !important;
+    transform: scale(1.01);
+}
