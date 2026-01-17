@@ -292,12 +292,27 @@
 				var $this = $(this);
 
 				// Close.
-					$('<div class="close">Close</div>')
+					// Close.
+					var $closeBtn = $('<div class="close">Close</div>')
 						.appendTo($this)
-						.on('click', function() {
-							location.hash = '';
+						.on('click', function(e) {
+							// CUSTOM FIX: Smart Navigation
+							// 1. If we are inside the 'Poem' article AND a specific poem is open...
+							if ($this.attr('id') === 'poem' && $('#poem .poem.active').length > 0) {
+								e.preventDefault();
+								e.stopPropagation(); // Stop it from closing the whole page
+								
+								// Go back to the archive list
+								$('.poem').removeClass('active').addClass('hidden');
+								$('#poem-list').removeClass('hidden').addClass('active').hide().fadeIn(300);
+								window.scrollTo(0, 0);
+							} 
+							// 2. Otherwise, behave normally (Close the article)
+							else {
+								location.hash = '';
+							}
 						});
-
+				
 				// Prevent clicks from inside article from bubbling.
 					$this.on('click', function(event) {
 						event.stopPropagation();
@@ -573,13 +588,18 @@ $(document).ready(function() {
         else { $btn.fadeOut(); }
     });
 
-    $btn.on('click', function() {
+   // UPDATED Back to Top Logic
+    $btn.on('click', function(e) {
+        e.preventDefault();    // Stop any default link behavior
+        e.stopPropagation();   // Stop the click from reaching the background (This fixes the redirect issue!)
+        
         $('html, body').animate({scrollTop: 0}, 800);
     });
 });
 
 
 })(jQuery);  
+
 
 
 
