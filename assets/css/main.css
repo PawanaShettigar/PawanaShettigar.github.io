@@ -3078,17 +3078,20 @@ button,
 
 /* --- 2. THE 4 POEM ANIMATIONS --- */
 
-/* Poem 1: Falling Meteor */
-.anim-meteor {
-    animation: meteor-fall 2.5s linear infinite;
-}
-@keyframes meteor-fall {
-    0% { transform: translate(10px, -10px); opacity: 0; }
-    50% { opacity: 1; }
-    100% { transform: translate(-10px, 10px); opacity: 0; }
+/* Poem 1: The Lock (Shaking effect representing the 'trap') */
+.anim-lock {
+    animation: lock-shake 3s ease-in-out infinite;
+    transform-origin: center;
 }
 
-/* Poem 2: Rotating Galaxy */
+@keyframes lock-shake {
+    0%, 100% { transform: rotate(0deg); }
+    5%, 15%, 25% { transform: rotate(-15deg); }
+    10%, 20%, 30% { transform: rotate(15deg); }
+    35% { transform: rotate(0deg); } /* Pauses after shaking */
+}
+
+/* Poem 2: Rotating Galaxy (Slow and steady) */
 .anim-galaxy {
     animation: galaxy-spin 15s linear infinite;
 }
@@ -3097,41 +3100,40 @@ button,
     to { transform: rotate(360deg); }
 }
 
-/* Poem 3: Jupiter's Protective Pulse (The Shield) */
-.anim-jupiter {
-    animation: jupiter-protect 2s ease-in-out infinite;
+/* Poem 3: Meteor (Falling diagonal) */
+.anim-meteor {
+    animation: meteor-fall 3s ease-in-out infinite;
 }
-@keyframes jupiter-protect {
-    0%, 100% { transform: scale(1); opacity: 1; color: #ff3b9d; }
-    50% { transform: scale(1.2); opacity: 0.8; color: #ffffff; }
+@keyframes meteor-fall {
+    0% { transform: translate(20px, -20px) scale(0.8); opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: translate(-20px, 20px) scale(1.1); opacity: 0; }
 }
 
-/* Poem 4: Rocket Escape (Takeoff Loop) */
+/* Poem 4: Rocket Escape (Smooth Launch) */
 .anim-escape {
-    animation: rocket-escape 2s ease-in infinite;
+    animation: rocket-launch 2.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
 }
 
-@keyframes rocket-escape {
+@keyframes rocket-launch {
     0% {
-        transform: translate(-10px, 10px) rotate(0deg);
+        transform: translate(-15px, 15px) rotate(0deg) scale(0.9);
         opacity: 0;
     }
-    20% {
+    10% {
         opacity: 1;
+        transform: translate(0, 0) rotate(0deg) scale(1);
     }
-    80% {
-        opacity: 1;
+    40% {
+        /* Engine rattle before takeoff */
+        transform: translate(-1px, 1px) rotate(-2deg);
     }
     100% {
-        transform: translate(15px, -25px) rotate(0deg);
+        /* Blast off to top right */
+        transform: translate(50px, -50px) rotate(45deg) scale(0.5);
         opacity: 0;
     }
-}
-
-/* Ensure the card doesn't show the rocket when it's "outside" the box */
-.star-card {
-    overflow: hidden;
-    position: relative;
 }
 
 /* Ensure poem titles are centered and static */
@@ -3467,6 +3469,7 @@ h1, .section-title {
     font-weight: 900;
     display: inline-block;
 }
+
 
 
 
