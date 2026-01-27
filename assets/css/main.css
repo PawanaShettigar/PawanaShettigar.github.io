@@ -1116,23 +1116,29 @@ input, select, textarea {
 		}
 
 		#bg:before {
-			-moz-transition: background-color 2.5s ease-in-out;
-			-webkit-transition: background-color 2.5s ease-in-out;
-			-ms-transition: background-color 2.5s ease-in-out;
-			transition: background-color 2.5s ease-in-out;
-			-moz-transition-delay: 0.75s;
-			-webkit-transition-delay: 0.75s;
-			-ms-transition-delay: 0.75s;
-			transition-delay: 0.75s;
-			background-image: linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)), url("../../images/overlay.png");
-			background-size: auto,
- 256px 256px;
-			background-position: center,
- center;
-			background-repeat: no-repeat,
- repeat;
-			z-index: 2;
-		}
+    -moz-transition: background-color 2.5s ease-in-out;
+    -webkit-transition: background-color 2.5s ease-in-out;
+    -ms-transition: background-color 2.5s ease-in-out;
+    transition: background-color 2.5s ease-in-out;
+    
+    /* Change this from 0.75s to 0s to remove the black screen delay */
+    -moz-transition-delay: 0s;
+    -webkit-transition-delay: 0s;
+    -ms-transition-delay: 0s;
+    transition-delay: 0s;
+
+    background-image: linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)), url("../../images/overlay.png");
+    background-size: auto, 256px 256px;
+    background-position: center, center;
+    background-repeat: no-repeat, repeat;
+    z-index: 2;
+}
+
+/* This is the color shown while the page is still "pre-loading" */
+body.is-preload #bg:before {
+    /* Changing this to a theme color makes the pop-in feel less jarring than pure black */
+    background-color: #1b1f22; 
+}
 
 		#bg:after {
 			-moz-transform: scale(1.125);
@@ -3474,6 +3480,7 @@ h1, .section-title {
     font-weight: 900;
     display: inline-block;
 }
+
 
 
 
