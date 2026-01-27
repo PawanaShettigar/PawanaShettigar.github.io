@@ -3111,27 +3111,34 @@ button,
     100% { transform: translate(-20px, 20px) scale(1.1); opacity: 0; }
 }
 
-/* Poem 4: Rocket Escape (Smooth Launch) */
+/* Poem 4: Rocket (Fixed Direction) */
 .anim-escape {
-    animation: rocket-launch 2.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+    /* We add a default rotation here so it sits correctly even before animation starts */
+    transform: rotate(45deg); 
+    animation: rocket-launch 2.5s ease-in infinite;
+    display: inline-block;
 }
 
 @keyframes rocket-launch {
     0% {
-        transform: translate(-15px, 15px) rotate(0deg) scale(0.9);
+        /* Start: Bottom-Left, invisible */
+        /* Rotate 45deg keeps the nose pointing to top-right corner */
+        transform: translate(-20px, 20px) rotate(45deg) scale(0.8);
         opacity: 0;
     }
-    10% {
+    15% {
+        /* Appear */
         opacity: 1;
-        transform: translate(0, 0) rotate(0deg) scale(1);
+        transform: translate(-15px, 15px) rotate(45deg) scale(0.8);
     }
-    40% {
-        /* Engine rattle before takeoff */
-        transform: translate(-1px, 1px) rotate(-2deg);
+    35% {
+        /* Engine rumble: Shake slightly while holding position */
+        transform: translate(-15px, 15px) rotate(45deg) scale(0.8) skew(2deg);
     }
     100% {
-        /* Blast off to top right */
-        transform: translate(50px, -50px) rotate(45deg) scale(0.5);
+        /* Blast off: Fly to Top-Right */
+        /* We keep rotate(45deg) so it flies straight, doesn't spin */
+        transform: translate(40px, -40px) rotate(45deg) scale(0.4);
         opacity: 0;
     }
 }
@@ -3469,6 +3476,7 @@ h1, .section-title {
     font-weight: 900;
     display: inline-block;
 }
+
 
 
 
