@@ -3180,96 +3180,81 @@ button,
     }
 }
 
-/* ============================================ */
-/* POEM 5 FIX PACK: spacing + nav + binary star */
-/* Paste near the END of assets/css/main.css    */
-/* ============================================ */
-
-/* 1) Make Poem 5 stanza spacing match Poems 1-4 */
-#poem-5 .verse-stanza {
-    margin-bottom: 2rem;
+/* ===== Poem 5 layout fixes ===== */
+#poem-5 .letter-header {
+    margin-bottom: 0.9rem; /* space below To: line */
 }
 
+#poem-5 .letter-header p {
+    margin: 0; /* remove gap between From and To */
+    line-height: 1.35;
+}
+
+/* gap after "To my dear friend," */
+#poem-5 .verse-stanza:first-of-type p:first-child {
+    margin-bottom: 0.9rem !important;
+}
+
+/* normal poem line spacing */
 #poem-5 .verse-stanza p {
-    font-size: 1.15rem;
-    margin-bottom: 0.3rem;   /* tight line spacing inside stanza */
+    margin-bottom: 0.3rem;
     line-height: 1.3;
-    font-weight: 300;
 }
 
-#poem-5 .verse-stanza:last-child {
-    margin-bottom: 1rem;
+/* ===== Binary star animation (actual revolution) ===== */
+.binary-star-icon {
+    position: relative;
+    width: 54px;
+    height: 54px;
+    display: inline-block;
 }
 
-/* Poem 5 nav row style parity */
-#poem-5 .poem-nav-row {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 2rem;
-    flex-wrap: wrap;
+/* invisible center of mass */
+.binary-star-icon::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 3px;
+    height: 3px;
+    background: rgba(255,255,255,0.22);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
 }
 
-@media screen and (max-width: 736px) {
-    #poem-5 {
-        padding: 1.5rem;
-    }
-
-    #poem-5 .verse-stanza p {
-        font-size: 1rem;
-    }
-
-    #poem-5 .poem-nav-row {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-/* 2) Binary star color theme: switch to pink like the rest */
+/* primary star */
 .anim-binary-star-1 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
     color: #ff3b9d;
-    text-shadow:
-        0 0 10px rgba(255, 59, 157, 0.9),
-        0 0 20px rgba(255, 59, 157, 0.6);
+    font-size: 0.95rem;
+    text-shadow: 0 0 10px rgba(255,59,157,.9), 0 0 22px rgba(255,59,157,.55);
+    animation: orbit-primary 3.2s linear infinite;
 }
 
+/* companion star */
 .anim-binary-star-2 {
-    color: #ff8ac6; /* lighter pink companion */
-    text-shadow:
-        0 0 8px rgba(255, 138, 198, 0.9),
-        0 0 15px rgba(255, 138, 198, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color: #ff9acb;
+    font-size: 0.72rem;
+    text-shadow: 0 0 8px rgba(255,154,203,.9), 0 0 18px rgba(255,154,203,.55);
+    animation: orbit-secondary 3.2s linear infinite;
 }
 
-.star-card:hover .binary-star-icon .anim-binary-star-1 {
-    text-shadow:
-        0 0 15px rgba(255, 59, 157, 1),
-        0 0 25px rgba(255, 59, 157, 0.7),
-        0 0 35px rgba(255, 59, 157, 0.4);
+/* opposite-phase revolution around barycenter */
+@keyframes orbit-primary {
+    from { transform: translate(-50%, -50%) rotate(0deg) translateX(11px) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg) translateX(11px) rotate(-360deg); }
 }
 
-.star-card:hover .binary-star-icon .anim-binary-star-2 {
-    text-shadow:
-        0 0 12px rgba(255, 138, 198, 1),
-        0 0 20px rgba(255, 138, 198, 0.7),
-        0 0 30px rgba(255, 138, 198, 0.4);
+@keyframes orbit-secondary {
+    from { transform: translate(-50%, -50%) rotate(180deg) translateX(7px) rotate(-180deg); }
+    to   { transform: translate(-50%, -50%) rotate(540deg) translateX(7px) rotate(-540deg); }
 }
 
-/* 3) Make motion look like an actual close binary pair */
-@keyframes binary-orbit-1 {
-    0%   { transform: translate(-50%, -50%) translate(8px, 0px)  rotate(0deg); }
-    25%  { transform: translate(-50%, -50%) translate(0px, 6px)  rotate(90deg); }
-    50%  { transform: translate(-50%, -50%) translate(-8px, 0px) rotate(180deg); }
-    75%  { transform: translate(-50%, -50%) translate(0px, -6px) rotate(270deg); }
-    100% { transform: translate(-50%, -50%) translate(8px, 0px)  rotate(360deg); }
-}
-
-@keyframes binary-orbit-2 {
-    0%   { transform: translate(-50%, -50%) translate(-5px, 0px) rotate(0deg); }
-    25%  { transform: translate(-50%, -50%) translate(0px, -4px) rotate(90deg); }
-    50%  { transform: translate(-50%, -50%) translate(5px, 0px)  rotate(180deg); }
-    75%  { transform: translate(-50%, -50%) translate(0px, 4px)  rotate(270deg); }
-    100% { transform: translate(-50%, -50%) translate(-5px, 0px) rotate(360deg); }
-}
 
 
 /* --- BUTTON TEXT CENTERING & WHITE COLOR --- */
