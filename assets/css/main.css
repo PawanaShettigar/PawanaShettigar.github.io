@@ -2685,7 +2685,8 @@ textarea:focus {
 #poem-1 .simple-poem-content,
 #poem-2 .simple-poem-content,
 #poem-3 .simple-poem-content,
-#poem-4 .simple-poem-content {
+#poem-4 .simple-poem-content, 
+#poem-5	.simple-poem-content {
     max-width: 700px;
     margin: 0 auto 2rem;
 }
@@ -2693,14 +2694,16 @@ textarea:focus {
 #poem-1 .verse-stanza,
 #poem-2 .verse-stanza,
 #poem-3 .verse-stanza,
-#poem-4 .verse-stanza {
+#poem-4 .verse-stanza,
+#poem-5 .verse-stanza {
     margin-bottom: 2rem;    /* SPACE BETWEEN STANZAS */
 }
 
 #poem-1 .verse-stanza p,
 #poem-2 .verse-stanza p,
 #poem-3 .verse-stanza p,
-#poem-4 .verse-stanza p {
+#poem-4 .verse-stanza p,
+#poem-5 .verse-stanza p {
     font-size: 1.15rem;
     margin-bottom: 0.3rem;  /* TIGHT LINES WITHIN STANZA */
     line-height: 1.3;
@@ -2711,6 +2714,7 @@ textarea:focus {
 #poem-1 .verse-stanza:last-child,
 #poem-2 .verse-stanza:last-child,
 #poem-3 .verse-stanza:last-child,
+#poem-4 .verse-stanza:last-child,
 #poem-4 .verse-stanza:last-child {
     margin-bottom: 1rem;
 }
@@ -2719,20 +2723,21 @@ textarea:focus {
 #poem-1 .climax,
 #poem-2 .climax,
 #poem-3 .climax,
-#poem-4 .climax {
+#poem-4 .climax,
+#poem-5 .climax {
     margin-top: 1.3rem;
     padding-top: 1.3rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* BOLD & ITALIC - SAME COLOR AS NORMAL TEXT */
-#poem-1 strong, #poem-2 strong, #poem-3 strong, #poem-4 strong,
-#poem-1 em, #poem-2 em, #poem-3 em, #poem-4 em {
+#poem-1 strong, #poem-2 strong, #poem-3 strong, #poem-4 strong, #poem-5 strong
+#poem-1 em, #poem-2 em, #poem-3 em, #poem-4 em, #poem-5 em {
     color: inherit;         /* SAME WHITE COLOR */
     font-weight: 600;       /* Bold */
 }
 
-#poem-1 em, #poem-2 em, #poem-3 em, #poem-4 em {
+#poem-1 em, #poem-2 em, #poem-3 em, #poem-4 em, #poem-5 em {
     font-style: italic;
 }
 
@@ -2740,7 +2745,8 @@ textarea:focus {
 #poem-1 .poem-nav-row,
 #poem-2 .poem-nav-row,
 #poem-3 .poem-nav-row,
-#poem-4 .poem-nav-row {
+#poem-4 .poem-nav-row,
+#poem-5 .poem-nav-row {
     display: flex;
     gap: 1rem;
     justify-content: center;
@@ -2750,34 +2756,36 @@ textarea:focus {
 
 /* MOBILE RESPONSIVE */
 @media screen and (max-width: 736px) {
-    #poem-1, #poem-2, #poem-3, #poem-4 {
+    #poem-1, #poem-2, #poem-3, #poem-4, #poem-5 {
         padding: 1.5rem;
     }
     
     #poem-1 .verse-stanza p,
     #poem-2 .verse-stanza p,
     #poem-3 .verse-stanza p,
-    #poem-4 .verse-stanza p {
+    #poem-4 .verse-stanza p,
+	  #poem-5 .verse-stanza p {
         font-size: 1rem;
     }
     
     #poem-1 .poem-nav-row,
     #poem-2 .poem-nav-row,
     #poem-3 .poem-nav-row,
-    #poem-4 .poem-nav-row {
+    #poem-4 .poem-nav-row,
+	  #poem-5 .poem-nav-row {
         flex-direction: column;
         align-items: center;
     }
 }
 
 /* FIX FOR YOUR EXISTING BUTTON CLASSES */
-#poem-1 .back, #poem-2 .back, #poem-3 .back, #poem-4 .back {
+#poem-1 .back, #poem-2 .back, #poem-3 .back, #poem-4 .back, #poem-5 .back {
     background: transparent;
     color: #ffffff;
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-#poem-1 .next-poem, #poem-2 .next-poem, #poem-3 .next-poem, #poem-4 .next-poem {
+#poem-1 .next-poem, #poem-2 .next-poem, #poem-3 .next-poem, #poem-4 .next-poem, #poem-5 .next poem {
     background: linear-gradient(45deg, #ff3b9d, #ff85c2);
     color: #ffffff;
     border: none;
@@ -3193,12 +3201,6 @@ button,
 /* gap after "To my dear friend," */
 #poem-5 .verse-stanza:first-of-type p:first-child {
     margin-bottom: 0.9rem !important;
-}
-
-/* normal poem line spacing */
-#poem-5 .verse-stanza p {
-    margin-bottom: 0.3rem;
-    line-height: 1.3;
 }
 
 /* ===== Binary star animation (actual revolution) ===== */
