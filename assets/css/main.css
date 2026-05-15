@@ -3181,141 +3181,96 @@ button,
 }
 
 /* ============================================ */
-/* BINARY STAR ANIMATION FOR POEM 5 */
-/* ADD THIS TO: assets/css/main.css */
-/* Location: After the .anim-escape section (around line 3180) */
+/* POEM 5 FIX PACK: spacing + nav + binary star */
+/* Paste near the END of assets/css/main.css    */
 /* ============================================ */
 
-/* Binary Star Container - Creates the orbital system */
-.binary-star-icon {
-    position: relative;
-    width: 48px;
-    height: 48px;
-    display: inline-block;
+/* 1) Make Poem 5 stanza spacing match Poems 1-4 */
+#poem-5 .verse-stanza {
+    margin-bottom: 2rem;
 }
 
-/* Star 1 - Larger primary star (orbits on larger path) */
+#poem-5 .verse-stanza p {
+    font-size: 1.15rem;
+    margin-bottom: 0.3rem;   /* tight line spacing inside stanza */
+    line-height: 1.3;
+    font-weight: 300;
+}
+
+#poem-5 .verse-stanza:last-child {
+    margin-bottom: 1rem;
+}
+
+/* Poem 5 nav row style parity */
+#poem-5 .poem-nav-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 736px) {
+    #poem-5 {
+        padding: 1.5rem;
+    }
+
+    #poem-5 .verse-stanza p {
+        font-size: 1rem;
+    }
+
+    #poem-5 .poem-nav-row {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* 2) Binary star color theme: switch to pink like the rest */
 .anim-binary-star-1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 1rem;
-    color: #FFD700;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8),
-                 0 0 20px rgba(255, 215, 0, 0.5);
-    animation: binary-orbit-1 4s ease-in-out infinite;
-    transform-origin: center;
+    color: #ff3b9d;
+    text-shadow:
+        0 0 10px rgba(255, 59, 157, 0.9),
+        0 0 20px rgba(255, 59, 157, 0.6);
 }
 
-/* Star 2 - Smaller companion star (orbits on tighter path) */
 .anim-binary-star-2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 0.7rem;
-    color: #87CEEB;
-    text-shadow: 0 0 8px rgba(135, 206, 235, 0.8),
-                 0 0 15px rgba(135, 206, 235, 0.5);
-    animation: binary-orbit-2 4s ease-in-out infinite;
-    transform-origin: center;
+    color: #ff8ac6; /* lighter pink companion */
+    text-shadow:
+        0 0 8px rgba(255, 138, 198, 0.9),
+        0 0 15px rgba(255, 138, 198, 0.6);
 }
 
-/* Primary star orbital path - Follows elliptical motion around barycenter */
-@keyframes binary-orbit-1 {
-    0% {
-        transform: translate(-50%, -50%) 
-                   translate(15px, 0px) 
-                   rotate(0deg);
-    }
-    25% {
-        transform: translate(-50%, -50%) 
-                   translate(0px, 15px) 
-                   rotate(90deg);
-    }
-    50% {
-        transform: translate(-50%, -50%) 
-                   translate(-15px, 0px) 
-                   rotate(180deg);
-    }
-    75% {
-        transform: translate(-50%, -50%) 
-                   translate(0px, -15px) 
-                   rotate(270deg);
-    }
-    100% {
-        transform: translate(-50%, -50%) 
-                   translate(15px, 0px) 
-                   rotate(360deg);
-    }
-}
-
-/* Companion star orbital path - Counter-orbits on opposite side */
-@keyframes binary-orbit-2 {
-    0% {
-        transform: translate(-50%, -50%) 
-                   translate(-10px, 0px) 
-                   rotate(180deg);
-    }
-    25% {
-        transform: translate(-50%, -50%) 
-                   translate(0px, -10px) 
-                   rotate(270deg);
-    }
-    50% {
-        transform: translate(-50%, -50%) 
-                   translate(10px, 0px) 
-                   rotate(360deg);
-    }
-    75% {
-        transform: translate(-50%, -50%) 
-                   translate(0px, 10px) 
-                   rotate(450deg);
-    }
-    100% {
-        transform: translate(-50%, -50%) 
-                   translate(-10px, 0px) 
-                   rotate(540deg);
-    }
-}
-
-/* Enhanced glow effect on hover for the binary system */
 .star-card:hover .binary-star-icon .anim-binary-star-1 {
-    text-shadow: 0 0 15px rgba(255, 215, 0, 1),
-                 0 0 25px rgba(255, 215, 0, 0.7),
-                 0 0 35px rgba(255, 215, 0, 0.4);
-    animation: binary-orbit-1 2s ease-in-out infinite;
+    text-shadow:
+        0 0 15px rgba(255, 59, 157, 1),
+        0 0 25px rgba(255, 59, 157, 0.7),
+        0 0 35px rgba(255, 59, 157, 0.4);
 }
 
 .star-card:hover .binary-star-icon .anim-binary-star-2 {
-    text-shadow: 0 0 12px rgba(135, 206, 235, 1),
-                 0 0 20px rgba(135, 206, 235, 0.7),
-                 0 0 30px rgba(135, 206, 235, 0.4);
-    animation: binary-orbit-2 2s ease-in-out infinite;
+    text-shadow:
+        0 0 12px rgba(255, 138, 198, 1),
+        0 0 20px rgba(255, 138, 198, 0.7),
+        0 0 30px rgba(255, 138, 198, 0.4);
 }
 
-/* Subtle pulse to simulate stellar luminosity variation */
-@keyframes stellar-pulse {
-    0%, 100% { 
-        filter: brightness(1); 
-        opacity: 1;
-    }
-    50% { 
-        filter: brightness(1.3); 
-        opacity: 0.9;
-    }
+/* 3) Make motion look like an actual close binary pair */
+@keyframes binary-orbit-1 {
+    0%   { transform: translate(-50%, -50%) translate(8px, 0px)  rotate(0deg); }
+    25%  { transform: translate(-50%, -50%) translate(0px, 6px)  rotate(90deg); }
+    50%  { transform: translate(-50%, -50%) translate(-8px, 0px) rotate(180deg); }
+    75%  { transform: translate(-50%, -50%) translate(0px, -6px) rotate(270deg); }
+    100% { transform: translate(-50%, -50%) translate(8px, 0px)  rotate(360deg); }
 }
 
-/* Apply subtle pulse to both stars */
-.anim-binary-star-1,
-.anim-binary-star-2 {
-    animation: binary-orbit-1 4s ease-in-out infinite,
-               stellar-pulse 2s ease-in-out infinite;
+@keyframes binary-orbit-2 {
+    0%   { transform: translate(-50%, -50%) translate(-5px, 0px) rotate(0deg); }
+    25%  { transform: translate(-50%, -50%) translate(0px, -4px) rotate(90deg); }
+    50%  { transform: translate(-50%, -50%) translate(5px, 0px)  rotate(180deg); }
+    75%  { transform: translate(-50%, -50%) translate(0px, 4px)  rotate(270deg); }
+    100% { transform: translate(-50%, -50%) translate(-5px, 0px) rotate(360deg); }
 }
 
-.anim-binary-star-2 {
-    animation: binary-orbit-2 4s ease-in-out infinite,
-               stellar-pulse 2.5s ease-in-out infinite;
-}
 
 /* --- BUTTON TEXT CENTERING & WHITE COLOR --- */
 .button-nav, .pink-btn {
