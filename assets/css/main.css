@@ -3195,10 +3195,6 @@ button,
     margin-bottom: 0.9rem !important;
 }
 
-/* normal poem line spacing */
-#poem-5 .verse-stanza p {
-    margin-bottom: 0.3rem;
-    line-height: 1.3;
 }
 
 /* ===== Binary star animation (actual revolution) ===== */
