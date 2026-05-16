@@ -1206,34 +1206,6 @@ input, select, textarea {
     z-index: 2;
 }
  
-/* ==========================================
-   ALTERNATIVE: SIMPLER COSMIC PATTERN
-   (Use this instead if the above looks too busy)
-   ========================================== */
- 
-/*
-#bg:before {
-    -moz-transition: background-color 2.5s ease-in-out;
-    -webkit-transition: background-color 2.5s ease-in-out;
-    -ms-transition: background-color 2.5s ease-in-out;
-    transition: background-color 2.5s ease-in-out;
-    transition-delay: 0s;
-    
-    background-image: 
-        linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)),
-        repeating-linear-gradient(
-            45deg,
-            transparent,
-            transparent 2px,
-            rgba(255, 255, 255, 0.02) 2px,
-            rgba(255, 255, 255, 0.02) 4px
-        );
-    
-    background-size: auto, 4px 4px;
-    background-position: center, 0 0;
-    background-repeat: no-repeat, repeat;
-    z-index: 2;
-}
 
 /* This is the color shown while the page is still "pre-loading" */
 body.is-preload #bg:before {
