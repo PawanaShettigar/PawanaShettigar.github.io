@@ -1127,9 +1127,110 @@ input, select, textarea {
     -ms-transition-delay: 0s;
     transition-delay: 0s;
 
-    background-image: linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)), url("../../images/overlay.png");
-    background-size: auto, 256px 256px;
-    background-position: center, center;
+#bg:before {
+    -moz-transition: background-color 2.5s ease-in-out;
+    -webkit-transition: background-color 2.5s ease-in-out;
+    -ms-transition: background-color 2.5s ease-in-out;
+    transition: background-color 2.5s ease-in-out;
+    transition-delay: 0s;
+    
+    /* IMPROVED: Cosmic starfield pattern using CSS only */
+    background-image: 
+        /* Dark overlay */
+        linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)),
+        /* Subtle noise texture (creates starfield effect) */
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.03) 2px,
+            rgba(255, 255, 255, 0.03) 4px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.02) 2px,
+            rgba(255, 255, 255, 0.02) 4px
+        ),
+        /* Scattered star points */
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 60% 70%, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+        radial-gradient(circle at 30% 80%, rgba(255, 255, 255, 0.09) 1px, transparent 1px),
+        radial-gradient(circle at 90% 60%, rgba(255, 255, 255, 0.11) 1px, transparent 1px),
+        radial-gradient(circle at 15% 50%, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+        /* Pink cosmic glow accents */
+        radial-gradient(circle at 40% 40%, rgba(255, 59, 157, 0.03), transparent 40%),
+        radial-gradient(circle at 70% 60%, rgba(255, 59, 157, 0.02), transparent 30%);
+    
+    background-size: 
+        auto,           /* Dark overlay */
+        4px 4px,        /* Noise texture horizontal */
+        4px 4px,        /* Noise texture vertical */
+        100% 100%,      /* Star points (full size) */
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        100% 100%,      /* Pink glows */
+        100% 100%;
+    
+    background-position: 
+        center,         /* Dark overlay */
+        0 0,            /* Noise patterns */
+        0 0,
+        0 0,            /* Stars (positioned by radial-gradient) */
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0,            /* Pink glows */
+        0 0;
+    
+    background-repeat: 
+        no-repeat,      /* Dark overlay */
+        repeat,         /* Noise patterns */
+        repeat,
+        no-repeat,      /* Stars */
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat,      /* Pink glows */
+        no-repeat;
+    
+    z-index: 2;
+}
+ 
+/* ==========================================
+   ALTERNATIVE: SIMPLER COSMIC PATTERN
+   (Use this instead if the above looks too busy)
+   ========================================== */
+ 
+/*
+#bg:before {
+    -moz-transition: background-color 2.5s ease-in-out;
+    -webkit-transition: background-color 2.5s ease-in-out;
+    -ms-transition: background-color 2.5s ease-in-out;
+    transition: background-color 2.5s ease-in-out;
+    transition-delay: 0s;
+    
+    background-image: 
+        linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)),
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.02) 2px,
+            rgba(255, 255, 255, 0.02) 4px
+        );
+    
+    background-size: auto, 4px 4px;
+    background-position: center, 0 0;
     background-repeat: no-repeat, repeat;
     z-index: 2;
 }
