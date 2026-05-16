@@ -1614,6 +1614,504 @@ body.is-preload #bg:before {
 
 		}
 
+/* ==========================================
+   ACCESSIBILITY IMPROVEMENTS
+   ========================================== */
+ 
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    #main article,
+    #main article.active,
+    #main article .close:before,
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+ 
+/* Focus states for keyboard navigation */
+#main article .close:focus {
+    outline: 3px solid rgba(255, 59, 157, 0.8);
+    outline-offset: 4px;
+}
+ 
+#main article a:focus {
+    outline: 2px solid rgba(255, 59, 157, 0.6);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+ 
+/* Skip to main content for keyboard users */
+.skip-to-content {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 59, 157, 0.95);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    z-index: 100000;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: top 0.2s ease;
+}
+ 
+.skip-to-content:focus {
+    top: 1rem;
+}
+ 
+/* ==========================================
+   FULL-SCREEN ARTICLE CONTAINER
+   ========================================== */
+ 
+#main article {
+    /* Full viewport coverage */
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: 100vw !important;
+    max-height: 100vh !important;
+    
+    /* Remove old modal styling */
+    border-radius: 0 !important;
+    
+    /* Enhanced background with better performance */
+    background-color: rgba(10, 12, 15, 0.97) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    
+    /* IMPROVED: Faster animation (300ms instead of 400ms) */
+    -moz-transition: opacity 0.3s ease-out, -moz-transform 0.3s ease-out;
+    -webkit-transition: opacity 0.3s ease-out, -webkit-transform 0.3s ease-out;
+    -ms-transition: opacity 0.3s ease-out, -ms-transform 0.3s ease-out;
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    
+    /* Flexbox for content centering */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    
+    /* Smooth scrolling */
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    
+    /* Padding for content */
+    padding: 0 !important;
+    
+    /* Z-index for overlay */
+    z-index: 10000;
+}
+ 
+/* Article Content Wrapper with Semantic Spacing */
+#main article > * {
+    width: 100%;
+    max-width: 900px;
+    padding: 0 3rem; /* 48px - using 8dp spacing scale */
+    margin: 0 auto;
+}
+ 
+/* IMPROVED: Using 8dp spacing scale (24px, 48px, 96px) */
+#main article > *:first-child {
+    margin-top: 6rem; /* 96px */
+}
+ 
+#main article > *:last-child:not(.close) {
+    margin-bottom: 4rem; /* 64px */
+}
+ 
+/* Entry Animation - Slide up from bottom */
+#main article {
+    -moz-transform: translateY(100vh);
+    -webkit-transform: translateY(100vh);
+    -ms-transform: translateY(100vh);
+    transform: translateY(100vh);
+    opacity: 0;
+}
+ 
+/* Active State - IMPROVED: ease-out for entering */
+#main article.active {
+    -moz-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+}
+ 
+/* ==========================================
+   ENHANCED CLOSE BUTTON
+   Touch target: 56px x 56px (exceeds 44x44 minimum)
+   ========================================== */
+ 
+#main article .close {
+    position: fixed !important;
+    top: 2rem !important;
+    right: 2rem !important;
+    width: 3.5rem !important; /* 56px */
+    height: 3.5rem !important; /* 56px */
+    z-index: 10001;
+    cursor: pointer;
+    text-indent: 4rem;
+    overflow: hidden;
+    white-space: nowrap;
+    
+    /* IMPROVED: Faster response */
+    transition: transform 0.2s ease-out;
+}
+ 
+#main article .close:before {
+    /* IMPROVED: 200ms for micro-interaction */
+    -moz-transition: all 0.2s ease-out;
+    -webkit-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    width: 2.5rem; /* 40px */
+    height: 2.5rem; /* 40px */
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    background-position: center;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cstyle%3Eline %7B stroke: %23ffffff%3B stroke-width: 2%3B stroke-linecap: round%3B %7D%3C/style%3E%3Cline x1='3' y1='3' x2='17' y2='17' /%3E%3Cline x1='17' y1='3' x2='3' y2='17' /%3E%3C/svg%3E");
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+}
+ 
+/* IMPROVED: Subtle scale feedback on press */
+#main article .close:active {
+    transform: scale(0.95);
+}
+ 
+#main article .close:hover:before {
+    background-color: rgba(255, 59, 157, 0.3);
+    transform: scale(1.05);
+}
+ 
+#main article .close:active:before {
+    background-color: rgba(255, 59, 157, 0.5);
+}
+ 
+/* ==========================================
+   TYPOGRAPHY HIERARCHY
+   Using proper type scale and line heights
+   ========================================== */
+ 
+#main article h1,
+#main article h2 {
+    font-size: 2.5rem; /* 40px */
+    font-weight: 300;
+    line-height: 1.3; /* Good for headings */
+    margin-bottom: 1.5rem; /* 24px - 8dp scale */
+    color: rgba(255, 255, 255, 0.95);
+    letter-spacing: -0.02em;
+}
+ 
+#main article h3 {
+    font-size: 1.6rem; /* ~26px */
+    font-weight: 400;
+    line-height: 1.4;
+    margin: 2rem 0 1rem 0; /* 32px 16px - 8dp scale */
+    color: rgba(255, 255, 255, 0.9);
+}
+ 
+#main article h4 {
+    font-size: 1.2rem; /* ~19px */
+    font-weight: 600;
+    margin: 1.5rem 0 0.75rem 0; /* 24px 12px */
+    color: rgba(255, 255, 255, 0.85);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+ 
+/* IMPROVED: Better body text specs */
+#main article p {
+    font-size: 1.1rem; /* 17.6px - above 16px minimum */
+    line-height: 1.75; /* Optimal readability (1.5-1.75 range) */
+    margin-bottom: 1.5rem; /* 24px */
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 75ch; /* IMPROVED: Optimal line length */
+}
+ 
+#main article strong {
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+}
+ 
+/* IMPROVED: Better link accessibility */
+#main article a {
+    color: rgba(255, 59, 157, 0.9);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 59, 157, 0.3);
+    transition: all 0.2s ease-out; /* Faster micro-interaction */
+    border-radius: 2px;
+    padding: 0 2px;
+}
+ 
+#main article a:hover {
+    color: rgb(255, 59, 157);
+    border-bottom-color: rgb(255, 59, 157);
+    background-color: rgba(255, 59, 157, 0.1);
+}
+ 
+/* Lists with proper spacing */
+#main article ul,
+#main article ol {
+    margin: 1.5rem 0 2rem 1.5rem; /* 24px 32px */
+}
+ 
+#main article li {
+    margin-bottom: 0.75rem; /* 12px */
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+}
+ 
+#main article li::marker {
+    color: rgba(255, 59, 157, 0.7);
+}
+ 
+/* ==========================================
+   CUSTOM SCROLLBAR (WebKit browsers)
+   ========================================== */
+ 
+#main article::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+#main article::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.03);
+}
+ 
+#main article::-webkit-scrollbar-thumb {
+    background: rgba(255, 59, 157, 0.4);
+    border-radius: 5px;
+    transition: background 0.2s ease;
+}
+ 
+#main article::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 59, 157, 0.7);
+}
+ 
+/* ==========================================
+   SPECIAL STYLING FOR POEM SECTION
+   ========================================== */
+ 
+#poem > * {
+    max-width: 700px !important;
+}
+ 
+#poem h2,
+#poem h3 {
+    text-align: center;
+    font-style: italic;
+    color: rgba(255, 59, 157, 0.95);
+}
+ 
+#poem p,
+#poem pre,
+#poem blockquote {
+    font-size: 1.15rem; /* 18.4px */
+    line-height: 2; /* Generous for poetry */
+    text-align: left;
+    margin: 2rem auto; /* 32px */
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Georgia', 'Times New Roman', serif;
+}
+ 
+#poem .poem-content {
+    margin: 3rem 0; /* 48px */
+    padding: 2rem 0; /* 32px */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+ 
+/* ==========================================
+   SCROLL HINT ANIMATION
+   ========================================== */
+ 
+#main article:after {
+    content: '';
+    position: fixed;
+    bottom: 2rem; /* 32px */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+ 
+#main article.active:after {
+    opacity: 1;
+    animation: scroll-hint 2s ease-in-out infinite;
+}
+ 
+@keyframes scroll-hint {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(-50%) translateY(10px);
+        opacity: 1;
+    }
+}
+ 
+/* Hide scroll hint when user scrolls */
+#main article.scrolled:after {
+    opacity: 0 !important;
+}
+ 
+/* ==========================================
+   RESPONSIVE BREAKPOINTS
+   Mobile-first approach with systematic breakpoints
+   ========================================== */
+ 
+/* Tablet: 768px */
+@media screen and (max-width: 980px) {
+    #main article > * {
+        max-width: 90%;
+        padding: 0 2rem; /* 32px */
+    }
+    
+    #main article > *:first-child {
+        margin-top: 5rem; /* 80px */
+    }
+    
+    #main article h1,
+    #main article h2 {
+        font-size: 2rem; /* 32px */
+    }
+    
+    #main article h3 {
+        font-size: 1.4rem; /* 22.4px */
+    }
+    
+    #main article .close {
+        top: 1.5rem !important;
+        right: 1.5rem !important;
+    }
+}
+ 
+/* Mobile: 736px */
+@media screen and (max-width: 736px) {
+    #main article > * {
+        max-width: 100%;
+        padding: 0 1.5rem; /* 24px */
+    }
+    
+    #main article > *:first-child {
+        margin-top: 4rem; /* 64px */
+    }
+    
+    #main article > *:last-child:not(.close) {
+        margin-bottom: 3rem; /* 48px */
+    }
+    
+    #main article h1,
+    #main article h2 {
+        font-size: 1.75rem; /* 28px */
+    }
+    
+    #main article h3 {
+        font-size: 1.3rem; /* 20.8px */
+    }
+    
+    /* CRITICAL: Body text minimum 16px on mobile */
+    #main article p {
+        font-size: 1rem; /* 16px - prevents iOS auto-zoom */
+    }
+    
+    #poem p,
+    #poem pre,
+    #poem blockquote {
+        font-size: 1.05rem; /* 16.8px */
+        line-height: 1.8;
+    }
+    
+    /* IMPROVED: Touch target remains 48px minimum */
+    #main article .close {
+        top: 1rem !important;
+        right: 1rem !important;
+        width: 3rem !important; /* 48px - meets minimum */
+        height: 3rem !important; /* 48px - meets minimum */
+    }
+    
+    #main article .close:before {
+        top: 0.4rem;
+        left: 0.4rem;
+        width: 2.2rem;
+        height: 2.2rem;
+        background-size: 16px 16px;
+    }
+}
+ 
+/* Small Mobile: 480px */
+@media screen and (max-width: 480px) {
+    #main article > * {
+        padding: 0 1.2rem; /* 19.2px */
+    }
+    
+    #main article > *:first-child {
+        margin-top: 3.5rem; /* 56px */
+    }
+}
+ 
+/* ==========================================
+   BACKGROUND EFFECTS WHEN ARTICLE IS ACTIVE
+   ========================================== */
+ 
+/* Blur background when article is active */
+body.is-article-visible #wrapper {
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    transition: filter 0.3s ease-out;
+}
+ 
+body.is-article-visible #header,
+body.is-article-visible #footer {
+    opacity: 0.3;
+    transition: opacity 0.3s ease-out;
+}
+ 
+/* Prevent body scrolling when article is open */
+body.is-article-visible {
+    overflow: hidden;
+}
+ 
+/* ==========================================
+   PERFORMANCE OPTIMIZATIONS
+   ========================================== */
+ 
+/* GPU acceleration for transforms */
+#main article {
+    will-change: transform, opacity;
+}
+ 
+#main article.active {
+    will-change: auto; /* Remove after animation */
+}
+ 
+/* Improve font rendering */
+#main article {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+
 /* Footer */
 
 	#footer {
