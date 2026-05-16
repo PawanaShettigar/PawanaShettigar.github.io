@@ -1743,7 +1743,7 @@ body.is-preload #bg:before {
     
     /* Enhanced background with better performance */
     background-color: rgba(10, 12, 15, 0.97) !important;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(20px);
     
     /* IMPROVED: Faster animation (300ms instead of 400ms) */
