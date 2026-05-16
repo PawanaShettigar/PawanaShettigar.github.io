@@ -1137,7 +1137,7 @@ input, select, textarea {
     /* IMPROVED: Cosmic starfield pattern using CSS only */
     background-image: 
         /* Dark overlay */
-        linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)),
+        linear-gradient(to top, rgba(19, 21, 25, 0.2), rgba(19, 21, 25, 0.2)),
         /* Subtle noise texture (creates starfield effect) */
         repeating-linear-gradient(
             0deg,
