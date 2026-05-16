@@ -1,4 +1,4 @@
-@import url(fontawesome-all.min.css);
+@import url(fontawesome-all.min.css);+
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600");
 
 /*
@@ -1115,85 +1115,24 @@ input, select, textarea {
 			height: 100%;
 		}
 
-#bg:before {
+		#bg:before {
     -moz-transition: background-color 2.5s ease-in-out;
     -webkit-transition: background-color 2.5s ease-in-out;
     -ms-transition: background-color 2.5s ease-in-out;
     transition: background-color 2.5s ease-in-out;
+    
+    /* Change this from 0.75s to 0s to remove the black screen delay */
+    -moz-transition-delay: 0s;
+    -webkit-transition-delay: 0s;
+    -ms-transition-delay: 0s;
     transition-delay: 0s;
-    
-    /* IMPROVED: Cosmic starfield pattern using CSS only */
-    background-image: 
-        /* Dark overlay */
-        linear-gradient(to top, rgba(19, 21, 25, 0.2), rgba(19, 21, 25, 0.2)),
-        /* Subtle noise texture (creates starfield effect) */
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 2px,
-            rgba(255, 255, 255, 0.03) 2px,
-            rgba(255, 255, 255, 0.03) 4px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 2px,
-            rgba(255, 255, 255, 0.02) 2px,
-            rgba(255, 255, 255, 0.02) 4px
-        ),
-        /* Scattered star points */
-        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-        radial-gradient(circle at 60% 70%, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
-        radial-gradient(circle at 30% 80%, rgba(255, 255, 255, 0.09) 1px, transparent 1px),
-        radial-gradient(circle at 90% 60%, rgba(255, 255, 255, 0.11) 1px, transparent 1px),
-        radial-gradient(circle at 15% 50%, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
-        /* Pink cosmic glow accents */
-        radial-gradient(circle at 40% 40%, rgba(255, 59, 157, 0.03), transparent 40%),
-        radial-gradient(circle at 70% 60%, rgba(255, 59, 157, 0.02), transparent 30%);
-    
-    background-size: 
-        auto,           /* Dark overlay */
-        4px 4px,        /* Noise texture horizontal */
-        4px 4px,        /* Noise texture vertical */
-        100% 100%,      /* Star points (full size) */
-        100% 100%,
-        100% 100%,
-        100% 100%,
-        100% 100%,
-        100% 100%,
-        100% 100%,      /* Pink glows */
-        100% 100%;
-    
-    background-position: 
-        center,         /* Dark overlay */
-        0 0,            /* Noise patterns */
-        0 0,
-        0 0,            /* Stars (positioned by radial-gradient) */
-        0 0,
-        0 0,
-        0 0,
-        0 0,
-        0 0,
-        0 0,            /* Pink glows */
-        0 0;
-    
-    background-repeat: 
-        no-repeat,      /* Dark overlay */
-        repeat,         /* Noise patterns */
-        repeat,
-        no-repeat,      /* Stars */
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        no-repeat,      /* Pink glows */
-        no-repeat;
-    
+
+    background-image: linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)), url("../../images/overlay.png");
+    background-size: auto, 256px 256px;
+    background-position: center, center;
+    background-repeat: no-repeat, repeat;
     z-index: 2;
 }
- 
 
 /* This is the color shown while the page is still "pre-loading" */
 body.is-preload #bg:before {
@@ -1228,6 +1167,9 @@ body.is-preload #bg:before {
 			filter: blur(0.2rem);
 		}
 
+		body.is-preload #bg:before {
+			background-color: #000000;
+		}
 
 /* Wrapper */
 
@@ -1452,6 +1394,12 @@ body.is-preload #bg:before {
 			opacity: 0;
 		}
 
+		body.is-preload #header {
+			-moz-filter: blur(0.125rem);
+			-webkit-filter: blur(0.125rem);
+			-ms-filter: blur(0.125rem);
+			filter: blur(0.125rem);
+		}
 
 			body.is-preload #header > * {
 				opacity: 0;
@@ -1666,8 +1614,6 @@ body.is-preload #bg:before {
 
 		}
 
-
-
 /* Footer */
 
 	#footer {
@@ -1734,10 +1680,6 @@ body, p, li, a, span, blockquote, h1, h2, h3, h4, h5, h6 {
     border-radius: 12px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
     padding: 3rem 2.5rem;
-
-	max-height: 80vh;
-    overflow-y: auto;
-    overflow-x: hidden;
 }
 
 /* Special Pink/Nebula Panel for "Poems" & "Research" */
@@ -3615,6 +3557,12 @@ h1, .section-title {
     font-weight: 900;
     display: inline-block;
 }
+
+
+
+
+
+
 
 
 
