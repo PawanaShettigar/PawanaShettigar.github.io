@@ -3558,7 +3558,33 @@ h1, .section-title {
     display: inline-block;
 }
 
+/* =========================================
+   WIDER POEM MODAL
+========================================= */
 
+#poem {
+    width: 95vw !important;
+    max-width: 1300px !important;
+}
+
+/* Make poem inner screens use full width */
+#poem .poem-list,
+#poem .poem,
+#poem .poem-welcome {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Better spacing for large layouts */
+#poem .star-map-grid {
+    gap: 2rem;
+}
+
+/* Optional: slightly larger content area */
+#poem .simple-poem-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
 
 
 
