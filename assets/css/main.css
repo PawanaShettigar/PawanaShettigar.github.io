@@ -1,4 +1,4 @@
-@import url(fontawesome-all.min.css);+
+@import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600");
 
 /*
@@ -1114,18 +1114,6 @@ input, select, textarea {
 			width: 100%;
 			height: 100%;
 		}
-
-		#bg:before {
-    -moz-transition: background-color 2.5s ease-in-out;
-    -webkit-transition: background-color 2.5s ease-in-out;
-    -ms-transition: background-color 2.5s ease-in-out;
-    transition: background-color 2.5s ease-in-out;
-    
-    /* Change this from 0.75s to 0s to remove the black screen delay */
-    -moz-transition-delay: 0s;
-    -webkit-transition-delay: 0s;
-    -ms-transition-delay: 0s;
-    transition-delay: 0s;
 
 #bg:before {
     -moz-transition: background-color 2.5s ease-in-out;
