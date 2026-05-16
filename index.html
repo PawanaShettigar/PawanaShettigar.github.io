@@ -718,7 +718,96 @@
 			<script src="assets/js/main.js"></script>
 
 		
-		
+		<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // =========================================
+    // SAVE MAIN ARTICLE SECTION
+    // =========================================
+    document.querySelectorAll('nav a').forEach(link => {
+
+        link.addEventListener('click', function () {
+
+            const target = this.getAttribute('href');
+
+            localStorage.setItem('lastSection', target);
+
+        });
+
+    });
+
+    // =========================================
+    // SAVE ACTIVE POEM SCREEN
+    // =========================================
+    document.querySelectorAll('[data-target]').forEach(button => {
+
+        button.addEventListener('click', function () {
+
+            const target = this.getAttribute('data-target');
+
+            // Save poem-related screens only
+            if (
+                target.startsWith('poem')
+            ) {
+
+                localStorage.setItem('activePoemScreen', target);
+
+                // Ensure poem article reopens
+                localStorage.setItem('lastSection', '#poem');
+
+            }
+
+        });
+
+    });
+
+    // =========================================
+    // RESTORE LAST MAIN SECTION
+    // =========================================
+    const lastSection = localStorage.getItem('lastSection');
+
+    if (lastSection && !window.location.hash) {
+
+        window.location.hash = lastSection;
+
+    }
+
+    // =========================================
+    // RESTORE POEM SCREEN
+    // =========================================
+    const activePoemScreen = localStorage.getItem('activePoemScreen');
+
+    if (activePoemScreen) {
+
+        setTimeout(() => {
+
+            // Hide all poem screens
+            document.querySelectorAll(
+                '.poem, .poem-list, .poem-welcome'
+            ).forEach(el => {
+
+                el.classList.remove('active');
+                el.classList.add('hidden');
+
+            });
+
+            // Show saved poem screen
+            const targetElement =
+                document.getElementById(activePoemScreen);
+
+            if (targetElement) {
+
+                targetElement.classList.remove('hidden');
+                targetElement.classList.add('active');
+
+            }
+
+        }, 500);
+
+    }
+
+});
+</script>
 	</body>
 </html>
 
