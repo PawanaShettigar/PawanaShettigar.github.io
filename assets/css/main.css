@@ -2126,12 +2126,6 @@ body.is-preload #bg:before {
    BACKGROUND EFFECTS WHEN ARTICLE IS ACTIVE
    ========================================== */
  
-/* Blur background when article is active */
-body.is-article-visible #wrapper {
-    filter: blur(5px);
-    -webkit-filter: blur(5px);
-    transition: filter 0.3s ease-out;
-}
  
 body.is-article-visible #header,
 body.is-article-visible #footer {
