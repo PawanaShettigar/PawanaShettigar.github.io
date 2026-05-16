@@ -1228,9 +1228,6 @@ body.is-preload #bg:before {
 			filter: blur(0.2rem);
 		}
 
-		body.is-preload #bg:before {
-			background-color: #000000;
-		}
 
 /* Wrapper */
 
@@ -1455,12 +1452,6 @@ body.is-preload #bg:before {
 			opacity: 0;
 		}
 
-		body.is-preload #header {
-			-moz-filter: blur(0.125rem);
-			-webkit-filter: blur(0.125rem);
-			-ms-filter: blur(0.125rem);
-			filter: blur(0.125rem);
-		}
 
 			body.is-preload #header > * {
 				opacity: 0;
@@ -1759,7 +1750,8 @@ body.is-preload #bg:before {
     align-items: center;
     
     /* Smooth scrolling */
-    overflow-y: auto;
+    max-height: 80vh;
+	overflow-y: auto;
     overflow-x: hidden;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
@@ -2149,7 +2141,7 @@ body.is-article-visible #footer {
  
 /* Prevent body scrolling when article is open */
 body.is-article-visible {
-    overflow: hidden;
+    overflow: auto;
 }
  
 /* ==========================================
