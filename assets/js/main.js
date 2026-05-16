@@ -937,7 +937,7 @@ $main._hide = (function() {
         releaseFocus();
     };
 })();
-
+*/
 })(jQuery);  
 
 
