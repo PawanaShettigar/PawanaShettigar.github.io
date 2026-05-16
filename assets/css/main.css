@@ -1851,7 +1851,6 @@ a:hover {
 }
 
 /* FIX MOBILE OVERFLOW */
-@media screen and (max-width: 736px) {
 
 #main article {
     width: 100% !important;
@@ -1860,11 +1859,6 @@ a:hover {
     overflow-x: hidden !important; /* Hide side scroll */
 }
 
-#main article#poem {
-    width: 92vw;
-    max-width: 1300px;
-}	
-	
 }
 /* Force text to wrap inside the poems */
 .poem p, .poem h3, .intro {
