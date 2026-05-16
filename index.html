@@ -718,7 +718,9 @@
 			<script src="assets/js/main.js"></script>
 
 		
-		<script>
+<script>
+document.body.classList.add('restore-loading');
+
 document.addEventListener("DOMContentLoaded", function () {
 
     // =========================================
@@ -745,14 +747,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const target = this.getAttribute('data-target');
 
-            // Save poem-related screens only
-            if (
-                target.startsWith('poem')
-            ) {
+            if (target.startsWith('poem')) {
 
                 localStorage.setItem('activePoemScreen', target);
-
-                // Ensure poem article reopens
                 localStorage.setItem('lastSection', '#poem');
 
             }
@@ -762,7 +759,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // =========================================
-    // RESTORE LAST MAIN SECTION
+    // RESTORE LAST SECTION
     // =========================================
     const lastSection = localStorage.getItem('lastSection');
 
@@ -781,7 +778,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         setTimeout(() => {
 
-            // Hide all poem screens
             document.querySelectorAll(
                 '.poem, .poem-list, .poem-welcome'
             ).forEach(el => {
@@ -791,7 +787,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             });
 
-            // Show saved poem screen
             const targetElement =
                 document.getElementById(activePoemScreen);
 
@@ -802,7 +797,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
             }
 
-        }, 500);
+            // Reveal page AFTER restoration
+            document.body.classList.remove('restore-loading');
+
+        }, 50);
+
+    } else {
+
+        document.body.classList.remove('restore-loading');
 
     }
 
