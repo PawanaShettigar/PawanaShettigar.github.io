@@ -1851,6 +1851,8 @@ a:hover {
 }
 
 /* FIX MOBILE OVERFLOW */
+@media screen and (max-width: 736px) {
+
 #main article {
     width: 100% !important;
     max-width: 100vw !important; /* Ensure it fits screen */
@@ -1858,6 +1860,12 @@ a:hover {
     overflow-x: hidden !important; /* Hide side scroll */
 }
 
+#main article#poem {
+    width: 92vw;
+    max-width: 1300px;
+}	
+	
+}
 /* Force text to wrap inside the poems */
 .poem p, .poem h3, .intro {
     white-space: normal !important; /* Allow wrapping */
@@ -3557,37 +3565,6 @@ h1, .section-title {
     font-weight: 900;
     display: inline-block;
 }
-
-/* =========================================
-   WIDER POEM MODAL
-========================================= */
-
-#poem {
-    width: 95vw !important;
-    max-width: 1300px !important;
-}
-
-/* Make poem inner screens use full width */
-#poem .poem-list,
-#poem .poem,
-#poem .poem-welcome {
-    width: 100%;
-    max-width: 100%;
-}
-
-/* Better spacing for large layouts */
-#poem .star-map-grid {
-    gap: 2rem;
-}
-
-/* Optional: slightly larger content area */
-#poem .simple-poem-content {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-
-
 
 
 
