@@ -3402,7 +3402,7 @@ h1, h2.section-title {
     background: #0b0d10; 
 }
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #ff3b9d, #6c22bd); 
+    background: linear-gradient(180deg,   #ffd6e7, #f8bbd0, #f4a6c8, #eb8fb9); 
     border-radius: 4px;
 }
 
