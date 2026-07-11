@@ -2845,12 +2845,12 @@ textarea:focus {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #ff3b9d; 
-    border-radius: 5px;
+    background: #f4a6c8; 
+    border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #e02465; 
+    background: #eb8fb9;
 }
 
 /* 2. Text Selection Highlight */
