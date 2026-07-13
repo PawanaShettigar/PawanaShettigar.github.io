@@ -3560,42 +3560,13 @@ h1, .section-title {
     display: inline-block;
 }
 
-/* Calm aurora panels */
+/* Black-space panel refresh */
 :root {
-  --space-ink: oklch(10% 0.014 320);
-  --space-plum: oklch(14% 0.024 330);
-  --space-text: oklch(95% 0.012 350);
-  --space-muted: oklch(81% 0.025 350);
-  --space-pink: oklch(71% 0.13 350);
-}
-
-.home-stars {
-  position: fixed;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  transition: opacity 300ms ease;
-}
-
-.home-stars span {
-  position: absolute;
-  left: var(--x);
-  top: var(--y);
-  width: var(--s);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: oklch(96% 0.02 350);
-  box-shadow: 0 0 0.65rem oklch(84% 0.09 350 / 0.7);
-  animation: home-twinkle var(--d) ease-in-out var(--delay) infinite alternate;
-}
-
-body.is-article-visible .home-stars {
-  opacity: 0;
-}
-
-@keyframes home-twinkle {
-  from { opacity: 0.18; transform: scale(0.75); }
-  to { opacity: 1; transform: scale(1.3); }
+  --ink: #0d0d10;
+  --ink-raised: #151318;
+  --text: #f4eef2;
+  --muted: #c8bbc2;
+  --accent: #df729b;
 }
 
 #poem.panel-main,
@@ -3604,25 +3575,33 @@ body.is-article-visible .home-stars {
   max-width: calc(100vw - 3rem) !important;
   min-height: min(76vh, 54rem);
   padding: clamp(2rem, 4vw, 4.75rem) !important;
-  color: var(--space-text);
-  background:
-    radial-gradient(82% 72% at 104% -12%, oklch(66% 0.13 350 / 0.16), transparent 58%),
-    radial-gradient(70% 52% at -12% 108%, oklch(50% 0.07 325 / 0.12), transparent 70%),
-    linear-gradient(145deg, var(--space-ink), var(--space-plum) 58%, var(--space-ink)) !important;
-  border: 1px solid oklch(72% 0.08 350 / 0.22) !important;
-  border-radius: clamp(0.8rem, 1.5vw, 1.25rem) !important;
-  box-shadow: 0 1.75rem 4.5rem oklch(4% 0.01 320 / 0.58);
+  color: var(--text);
+  background: var(--ink) !important;
+  border: 1px solid rgba(244, 238, 242, 0.14) !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 1.75rem 4.5rem rgba(0, 0, 0, 0.55);
   backdrop-filter: none !important;
 }
 
 #poem .section-title,
 #research-work-and-projects .section-title {
   display: block;
-  color: var(--space-text);
+  color: var(--text);
   background: none !important;
   -webkit-text-fill-color: currentColor;
   letter-spacing: 0.06em !important;
-  text-shadow: 0 0 1rem oklch(70% 0.1 350 / 0.22);
+  text-shadow: none;
+  border-bottom: 1px solid rgba(244, 238, 242, 0.16);
+}
+
+#poem .section-title::after,
+#research-work-and-projects .section-title::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 2px;
+  margin-top: 0.85rem;
+  background: var(--accent);
 }
 
 #poem .poem:not(.hidden) {
@@ -3644,9 +3623,9 @@ body.is-article-visible .home-stars {
 
 #research-work-and-projects .mission-card,
 #poem .star-card {
-  background: oklch(15% 0.02 330 / 0.78) !important;
-  border: 1px solid oklch(72% 0.07 350 / 0.2) !important;
-  border-radius: 0.85rem;
+  background: var(--ink-raised) !important;
+  border: 1px solid rgba(244, 238, 242, 0.12) !important;
+  border-radius: 0.75rem;
   box-shadow: none !important;
   backdrop-filter: none !important;
 }
@@ -3658,26 +3637,21 @@ body.is-article-visible .home-stars {
 #research-work-and-projects .mission-card:hover,
 #poem .star-card:hover {
   transform: translateY(-0.35rem) !important;
-  border-color: oklch(76% 0.11 350 / 0.56) !important;
-  box-shadow: 0 1rem 2.25rem oklch(4% 0.01 320 / 0.34) !important;
+  border-color: var(--accent) !important;
+  box-shadow: 0 1rem 2.25rem rgba(0, 0, 0, 0.42) !important;
 }
 
 #research-work-and-projects .mission-content h3 {
-  color: var(--space-text);
+  color: var(--text);
   text-transform: none;
   letter-spacing: normal;
   text-shadow: none;
 }
 
 #research-work-and-projects .mission-desc {
-  color: var(--space-muted);
+  color: var(--muted);
   border-left: 0;
   padding-left: 0;
-}
-
-#research-work-and-projects .mission-status {
-  border: 1px solid oklch(72% 0.07 350 / 0.25);
-  background: oklch(11% 0.014 320 / 0.9);
 }
 
 @media screen and (max-width: 736px) {
@@ -3692,16 +3666,74 @@ body.is-article-visible .home-stars {
   #research-work-and-projects .mission-grid {
     grid-template-columns: 1fr;
   }
-
-  #poem .poem:not(.hidden) {
-    min-height: 0;
-    padding: 0;
-  }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .home-stars span {
-    animation: none;
+/* Research: wide project panels instead of compact cards */
+#research-work-and-projects .mission-grid {
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+#research-work-and-projects .mission-card {
+  display: grid;
+  grid-template-columns: minmax(15rem, 22rem) minmax(0, 1fr);
+  min-height: 18rem;
+  border-radius: 0.65rem;
+  overflow: hidden;
+}
+
+#research-work-and-projects .mission-image {
+  height: auto;
+  min-height: 18rem;
+  border-right: 1px solid rgba(244, 238, 242, 0.12);
+  border-bottom: 0;
+}
+
+#research-work-and-projects .mission-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1.75rem, 3vw, 3rem);
+}
+
+#research-work-and-projects .mission-content h3 {
+  max-width: 28ch;
+  margin-bottom: 0.85rem;
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  line-height: 1.25;
+}
+
+#research-work-and-projects .mission-desc {
+  max-width: 62ch;
+  margin-bottom: 1.5rem;
+}
+
+#research-work-and-projects .mission-payload {
+  margin-top: auto;
+}
+
+#research-work-and-projects .mission-status {
+  top: 1rem;
+  left: 1rem;
+  right: auto;
+}
+
+/* Stack naturally on phones and small tablets */
+@media screen and (max-width: 900px) {
+  #research-work-and-projects .mission-card {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  #research-work-and-projects .mission-image {
+    height: 14rem;
+    min-height: 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(244, 238, 242, 0.12);
+  }
+
+  #research-work-and-projects .mission-content {
+    padding: 1.5rem;
   }
 }
 
