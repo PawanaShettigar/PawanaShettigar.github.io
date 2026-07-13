@@ -724,7 +724,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const target = this.getAttribute('href');
 
-            localStorage.setItem('lastSection', target);
+            sessionStorage.setItem('lastSection', target);
 
         });
 
@@ -741,8 +741,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (target.startsWith('poem')) {
 
-                localStorage.setItem('activePoemScreen', target);
-                localStorage.setItem('lastSection', '#poem');
+                sessionStorage.setItem('activePoemScreen', target);
+                sessionStorage.setItem('lastSection', '#poem');
 
             }
 
@@ -753,7 +753,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // =========================================
     // RESTORE LAST SECTION
     // =========================================
-    const lastSection = localStorage.getItem('lastSection');
+    const lastSection = sessionStorage.getItem('lastSection');
 
     if (lastSection && !window.location.hash) {
 
@@ -764,7 +764,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // =========================================
     // RESTORE POEM SCREEN
     // =========================================
-    const activePoemScreen = localStorage.getItem('activePoemScreen');
+    const activePoemScreen = sessionStorage.getItem('activePoemScreen');
 
     if (activePoemScreen) {
 
